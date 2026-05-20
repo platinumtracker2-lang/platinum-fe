@@ -65,7 +65,7 @@
 //             <div key={index} className="relative group">
 //               <motion.button
 //                 className={`tracking-wide text-[15.6px] ${
-//                   isActive(path) ? "text-accent font-semibold" : "text-black/70"
+//                   isActive(path) ? "text-[#00AEEF] font-semibold" : "text-black/70"
 //                 }`}
 //                 onClick={() => navigateTo(path)}
 //                 whileHover={{ color: "#227B94" }}
@@ -74,7 +74,7 @@
 //                 {name}
 //               </motion.button>
 //               <motion.div
-//                 className={`absolute bottom-[-4px] h-[1.5px] bg-accent transition-all duration-300 ${
+//                 className={`absolute bottom-[-4px] h-[1.5px] bg-[#00AEEF] transition-all duration-300 ${
 //                   isActive(path)
 //                     ? "w-full left-0"
 //                     : "w-0 left-1/2 group-hover:w-full group-hover:left-0"
@@ -87,14 +87,14 @@
 //         {/* Desktop Buttons */}
 //         {isLoggedIn ? (
 //           <button
-//             className="text-2xl hidden lg:block text-primary py-3 hover:text-accent/90"
+//             className="text-2xl hidden lg:block text-primary py-3 hover:text-[#00AEEF]/90"
 //             onClick={() => navigateTo("/dashboard")}
 //           >
 //             <FaUserCircle />
 //           </button>
 //         ) : (
 //           <button
-//             className="bg-accent hidden lg:block text-white px-5 py-2 rounded-sm hover:bg-accent/90"
+//             className="bg-[#00AEEF] hidden lg:block text-white px-5 py-2 rounded-sm hover:bg-[#00AEEF]/90"
 //             onClick={() => navigateTo("/auth/login")}
 //           >
 //             Login
@@ -104,7 +104,7 @@
 //         {/* Mobile Menu Toggle */}
 //         <div className="lg:hidden">
 //           <FaBars
-//             className={`text-2xl text-accent cursor-pointer ${
+//             className={`text-2xl text-[#00AEEF] cursor-pointer ${
 //               menuOpen ? "hidden" : ""
 //             }`}
 //             onClick={() => setMenuOpen(true)}
@@ -116,7 +116,7 @@
 //       {menuOpen && (
 //         <>
 //           <FaTimes
-//             className="text-2xl text-accent cursor-pointer fixed top-5 right-2 z-[100]"
+//             className="text-2xl text-[#00AEEF] cursor-pointer fixed top-5 right-2 z-[100]"
 //             onClick={() => setMenuOpen(false)}
 //           />
 //           <motion.div
@@ -130,7 +130,7 @@
 //               <button
 //                 key={index}
 //                 className={`text-lg ${
-//                   isActive(path) ? "text-accent font-semibold" : "text-black/70"
+//                   isActive(path) ? "text-[#00AEEF] font-semibold" : "text-black/70"
 //                 }`}
 //                 onClick={() => navigateTo(path)}
 //               >
@@ -139,14 +139,14 @@
 //             ))}
 //             {isLoggedIn ? (
 //               <button
-//                 className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
+//                 className="bg-[#00AEEF] text-white px-5 py-2 rounded-sm hover:bg-[#00AEEF]/90"
 //                 onClick={() => navigateTo("/dashboard")}
 //               >
 //                 Profile
 //               </button>
 //             ) : (
 //               <button
-//                 className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
+//                 className="bg-[#00AEEF] text-white px-5 py-2 rounded-sm hover:bg-[#00AEEF]/90"
 //                 onClick={() => navigateTo("/auth/login")}
 //               >
 //                 Login
@@ -224,7 +224,9 @@ const Navbar = () => {
             <div key={index} className="relative group">
               <motion.button
                 className={`tracking-wide text-[15.6px] ${
-                  isActive(path) ? "text-accent font-semibold" : "text-black/70"
+                  isActive(path)
+                    ? "text-[#00AEEF] font-semibold"
+                    : "text-black/70"
                 }`}
                 onClick={() => navigateTo(path)}
                 whileHover={{ color: "#227B94" }}
@@ -233,7 +235,7 @@ const Navbar = () => {
                 {name}
               </motion.button>
               <motion.div
-                className={`absolute bottom-[-4px] h-[1.5px] bg-accent transition-all duration-300 ${
+                className={`absolute bottom-[-4px] h-[1.5px] bg-[#00AEEF] transition-all duration-300 ${
                   isActive(path)
                     ? "w-full left-0"
                     : "w-0 left-1/2 group-hover:w-full group-hover:left-0"
@@ -246,7 +248,7 @@ const Navbar = () => {
         {/* Desktop Buttons (Visible after xl) */}
         {isLoggedIn && (
           <button
-            className="text-2xl hidden xl:block text-primary py-3 hover:text-accent/90"
+            className="text-2xl hidden xl:block text-primary py-3 hover:text-[#00AEEF]/90"
             onClick={() => navigateTo("/dashboard")}
           >
             <FaUserCircle />
@@ -256,7 +258,7 @@ const Navbar = () => {
         {/* Mobile Menu Toggle (Hidden after xl) */}
         <div className="xl:hidden">
           <FaBars
-            className={`text-2xl text-accent cursor-pointer ${
+            className={`text-2xl text-[#00AEEF] cursor-pointer ${
               menuOpen ? "hidden" : ""
             }`}
             onClick={() => setMenuOpen(true)}
@@ -268,7 +270,7 @@ const Navbar = () => {
       {menuOpen && (
         <>
           <FaTimes
-            className="text-2xl text-accent cursor-pointer fixed top-5 right-2 z-[100]"
+            className="text-2xl text-[#00AEEF] cursor-pointer fixed top-5 right-2 z-[100]"
             onClick={() => setMenuOpen(false)}
           />
           <motion.div
@@ -282,7 +284,9 @@ const Navbar = () => {
               <button
                 key={index}
                 className={`text-lg ${
-                  isActive(path) ? "text-accent font-semibold" : "text-black/70"
+                  isActive(path)
+                    ? "text-[#00AEEF] font-semibold"
+                    : "text-black/70"
                 }`}
                 onClick={() => navigateTo(path)}
               >
@@ -291,7 +295,7 @@ const Navbar = () => {
             ))}
             {isLoggedIn && (
               <button
-                className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
+                className="bg-[#00AEEF] text-white px-5 py-2 rounded-sm hover:bg-[#00AEEF]/90"
                 onClick={() => navigateTo("/dashboard")}
               >
                 Profile

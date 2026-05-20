@@ -21,7 +21,7 @@
 //         isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
 //       }`}
 //     >
-//       <div className="p-4 lg:p-[22.8px] bg-gradient-to-r from-accent/80 to-accent flex-shrink-0">
+//       <div className="p-4 lg:p-[22.8px] bg-gradient-to-r from-[#00AEEF]/80 to-[#00AEEF] flex-shrink-0">
 //         <div className="flex items-center space-x-3">
 //           <MdSpaceDashboard className="text-white text-2xl" />
 //           <h1 className="text-xl font-bold text-white">Platinum Tracker</h1>
@@ -40,7 +40,7 @@
 //                 }}
 //                 className={`w-full flex items-center space-x-3 px-6 py-3 hover:bg-gray-50 transition-colors ${
 //                   activeTab === item.id
-//                     ? "bg-accent/10 text-accent border-r-4 border-accent font-medium"
+//                     ? "bg-[#00AEEF]/10 text-[#00AEEF] border-r-4 border-[#00AEEF] font-medium"
 //                     : ""
 //                 }`}
 //               >
@@ -91,7 +91,7 @@ const Sidebar = ({
       }`}
     >
       <div
-        className="p-4 lg:p-[22.8px] bg-gradient-to-r from-accent/80 to-accent flex-shrink-0 cursor-pointer"
+        className="p-4 lg:p-[22.8px] bg-gradient-to-r from-[#00AEEF]/80 to-[#00AEEF] flex-shrink-0 cursor-pointer"
         onClick={() => router.push("/")}
       >
         <div className="flex items-center space-x-3">
@@ -112,7 +112,7 @@ const Sidebar = ({
                 }}
                 className={`w-full flex items-center space-x-3 px-6 py-3 hover:bg-gray-50 transition-colors ${
                   activeTab === item.id
-                    ? "bg-accent/10 text-accent border-r-4 border-accent font-medium"
+                    ? "bg-[#00AEEF]/10 text-[#00AEEF] border-r-4 border-[#00AEEF] font-medium"
                     : ""
                 }`}
               >

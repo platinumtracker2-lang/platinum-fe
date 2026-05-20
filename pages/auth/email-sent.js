@@ -62,7 +62,7 @@ const EmailSent = () => {
             whileHover={{ scale: 1 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleOpenInbox}
-            className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
+            className="w-full bg-[#00AEEF] text-white py-2 rounded-sm hover:bg-[#00AEEF]/90 transition-all duration-300 ease-in-out"
           >
             Open Inbox
           </motion.button>

@@ -24,7 +24,7 @@ const Substacks = () => {
 
   // Format date function
   const formatDate = (dateString) => {
-    if (!dateString) return '';
+    if (!dateString) return "";
     try {
       return new Date(dateString).toLocaleDateString("en-US", {
         year: "numeric",
@@ -33,34 +33,38 @@ const Substacks = () => {
       });
     } catch (error) {
       console.warn("Invalid date format:", dateString);
-      return '';
+      return "";
     }
   };
 
   useEffect(() => {
     const fetchSubstacks = async () => {
       try {
-        console.log('Fetching substacks from:', SUBSTACKS);
+        console.log("Fetching substacks from:", SUBSTACKS);
         const response = await fetch(SUBSTACKS);
-        
+
         if (!response.ok) {
-          console.warn(`Substacks API returned ${response.status} — showing empty state`);
+          console.warn(
+            `Substacks API returned ${response.status} — showing empty state`,
+          );
           setSubstackPosts([]);
           setLoading(false);
           return;
         }
-        
+
         const data = await response.json();
-        console.log('Substacks data:', data);
-        
-        const formattedPosts = Array.isArray(data) 
+        console.log("Substacks data:", data);
+
+        const formattedPosts = Array.isArray(data)
           ? data.map((post) => ({
               id: post.id || Math.random().toString(36).substr(2, 9),
               title: formatTitle(post.title) || "Untitled Substack Post",
               url: post.url || "#",
               content: truncateContent(post.content),
               subtitle: post.subtitle || "",
-              image: post.image_url || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s",
+              image:
+                post.image_url ||
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s",
               date: formatDate(post.date || post.created_at),
             }))
           : [];
@@ -132,33 +136,38 @@ const Substacks = () => {
             className="flex items-start justify-between space-x-4 pb-4 cursor-pointer group border-b border-gray-100 last:border-b-0"
           >
             <div className="flex flex-col flex-grow">
-              <p className="text-xs font-semibold text-accent mb-1">
+              <p className="text-xs font-semibold text-[#00AEEF] mb-1">
                 Substack
               </p>
-              
-              <h3 className="text-md font-bold text-gray-800 mt-1 group-hover:text-accent transition-colors">
+
+              <h3 className="text-md font-bold text-gray-800 mt-1 group-hover:text-[#00AEEF] transition-colors">
                 {post.title}
               </h3>
-              
+
               {post.content && (
                 <p className="text-sm text-gray-600 mt-1 line-clamp-2">
                   {post.content}
                 </p>
               )}
-              
+
               {post.date && (
                 <span className="text-xs text-gray-500 mt-2">{post.date}</span>
               )}
             </div>
-            
+
             <div className="flex-shrink-0">
               <div className="w-[80px] h-[75px] overflow-hidden rounded-md">
                 <img
                   src={post.image}
-                  alt={post.title ? post.title.substring(0, 10) + "..." : "Substack post"}
+                  alt={
+                    post.title
+                      ? post.title.substring(0, 10) + "..."
+                      : "Substack post"
+                  }
                   className="object-cover w-full h-full group-hover:scale-105 transition-transform"
                   onError={(e) => {
-                    e.target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s";
+                    e.target.src =
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s";
                   }}
                 />
               </div>

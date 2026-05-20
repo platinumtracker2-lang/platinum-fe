@@ -42,9 +42,9 @@ const EmailSent = () => {
                     onClick={() =>
                       window.open("https://mail.google.com", "_blank")
                     }
-                    className="w-full bg-accent text-white py-3 rounded-md 
+                    className="w-full bg-[#00AEEF] text-white py-3 rounded-md 
                     transition-colors duration-200 ease-in-out
-                    hover:bg-accent-dark font-medium text-lg
+                    hover:bg-[#00AEEF]-dark font-medium text-lg
                     shadow-sm hover:shadow-md"
                   >
                     Open Email
@@ -52,7 +52,7 @@ const EmailSent = () => {
                   <button
                     onClick={() => router.push("/auth/login")}
                     className="flex items-center justify-center space-x-2 
-                    text-accent hover:text-accent-dark mx-auto
+                    text-[#00AEEF] hover:text-[#00AEEF]-dark mx-auto
                     transition-colors duration-200 ease-in-out 
                     font-medium group"
                   >

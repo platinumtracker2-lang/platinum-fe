@@ -226,18 +226,20 @@ const PlainNews = () => {
     const fetchNewsData = async () => {
       try {
         setLoading(true);
-        console.log('Fetching plain news from:', PRESS_RELEASE);
+        console.log("Fetching plain news from:", PRESS_RELEASE);
         const response = await fetch(PRESS_RELEASE);
-        
+
         if (!response.ok) {
-          console.warn(`Press releases API returned ${response.status} — showing empty state`);
+          console.warn(
+            `Press releases API returned ${response.status} — showing empty state`,
+          );
           setNewsData([]);
           setLoading(false);
           return;
         }
-        
+
         const data = await response.json();
-        console.log('Plain news data:', data);
+        console.log("Plain news data:", data);
 
         if (data && Array.isArray(data) && data.length > 0) {
           const processedData = data.map((news) => ({
@@ -250,7 +252,7 @@ const PlainNews = () => {
         }
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching plain news:', err);
+        console.error("Error fetching plain news:", err);
         setError("Failed to fetch news data");
         setNewsData([]);
         setLoading(false);
@@ -289,7 +291,9 @@ const PlainNews = () => {
   if (loading) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-3">Latest Lithium News</h1>
+        <h1 className="text-[21px] cambay font-bold mb-3">
+          Latest Lithium News
+        </h1>
         <Loader />
       </div>
     );
@@ -298,7 +302,9 @@ const PlainNews = () => {
   if (error) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-3">Latest Lithium News</h1>
+        <h1 className="text-[21px] cambay font-bold mb-3">
+          Latest Lithium News
+        </h1>
         <div className="text-center py-8 text-red-500">{error}</div>
       </div>
     );
@@ -307,7 +313,9 @@ const PlainNews = () => {
   if (!newsData || newsData.length === 0) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-3">Latest Lithium News</h1>
+        <h1 className="text-[21px] cambay font-bold mb-3">
+          Latest Lithium News
+        </h1>
         <div className="text-center py-8 text-gray-500">No data available</div>
       </div>
     );
@@ -316,7 +324,9 @@ const PlainNews = () => {
   return (
     <div>
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-3">Latest Lithium News</h1>
+        <h1 className="text-[21px] cambay font-bold mb-3">
+          Latest Lithium News
+        </h1>
 
         <div className="flex flex-wrap md:flex-nowrap gap-5">
           <div className="w-full grid grid-cols-1 gap-3">
@@ -332,16 +342,16 @@ const PlainNews = () => {
                     {/* Ticker Badge */}
                     {news.ticker && (
                       <div className="mb-2">
-                        <span className="bg-accent text-[10px] rounded-sm text-white px-2 py-1">
+                        <span className="bg-[#00AEEF] text-[10px] rounded-sm text-white px-2 py-1">
                           {news.ticker}
                         </span>
                       </div>
                     )}
-                    
+
                     <h2 className="group-hover:underline text-[16px] md:text-[17px] text-primary leading-6">
                       {news.title}
                     </h2>
-                    
+
                     {/* Company Name */}
                     {news.company_name && (
                       <p className="text-[12px] text-gray-600 mt-1">
@@ -349,7 +359,7 @@ const PlainNews = () => {
                       </p>
                     )}
                   </div>
-                  
+
                   <span className="text-gray-500 text-xs whitespace-nowrap">
                     {formatDate(news.date)}
                   </span>

@@ -12,7 +12,7 @@ const StockScreenerTableFilters = ({
           <div key={key} className="relative w-28 flex flex-col mb-6">
             <label
               htmlFor={key}
-              className="absolute top-[-8px] left-[8px] px-1 bg-white text-accent text-[0.7rem] rounded-lg"
+              className="absolute top-[-8px] left-[8px] px-1 bg-white text-[#00AEEF] text-[0.7rem] rounded-lg"
             >
               {key.replace(/_/g, " ").toUpperCase()}
             </label>

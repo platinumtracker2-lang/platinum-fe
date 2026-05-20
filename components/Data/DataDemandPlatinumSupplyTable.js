@@ -53,7 +53,7 @@ const PlatinumTable = () => {
                 </div>
               </th>
               <th
-                className="text-center font-bold text-accent p-1 md:px-2 md:py-2 border border-gray-200"
+                className="text-center font-bold text-[#00AEEF] p-1 md:px-2 md:py-2 border border-gray-200"
                 colSpan={4}
               >
                 <div className="border-b border-gray-200 pb-1">
@@ -108,7 +108,7 @@ const PlatinumTable = () => {
                   <td
                     key={year}
                     className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                      year >= 2025 ? "text-accent" : ""
+                      year >= 2025 ? "text-[#00AEEF]" : ""
                     }`}
                   >
                     {getSupplyData(year, key)}
@@ -125,7 +125,7 @@ const PlatinumTable = () => {
                 <td
                   key={year}
                   className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                    year >= 2025 ? "text-accent" : ""
+                    year >= 2025 ? "text-[#00AEEF]" : ""
                   }`}
                 >
                   {getSupplyData(year, "total_mining_supply")}
@@ -158,7 +158,7 @@ const PlatinumTable = () => {
                   <td
                     key={year}
                     className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                      year >= 2025 ? "text-accent" : ""
+                      year >= 2025 ? "text-[#00AEEF]" : ""
                     }`}
                   >
                     {getRecyclingData(year, key)}
@@ -175,7 +175,7 @@ const PlatinumTable = () => {
                 <td
                   key={year}
                   className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                    year >= 2025 ? "text-accent" : ""
+                    year >= 2025 ? "text-[#00AEEF]" : ""
                   }`}
                 >
                   {getRecyclingData(year, "total_recycling")}
@@ -191,7 +191,7 @@ const PlatinumTable = () => {
                 <td
                   key={year}
                   className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                    year >= 2025 ? "text-accent" : ""
+                    year >= 2025 ? "text-[#00AEEF]" : ""
                   }`}
                 >
                   {year >= 2025
@@ -223,7 +223,7 @@ const PlatinumTable = () => {
                   <td
                     key={year}
                     className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                      year >= 2025 ? "text-accent" : ""
+                      year >= 2025 ? "text-[#00AEEF]" : ""
                     }`}
                   >
                     {getDemandData(year, key)}
@@ -240,7 +240,7 @@ const PlatinumTable = () => {
                 <td
                   key={year}
                   className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                    year >= 2025 ? "text-accent" : ""
+                    year >= 2025 ? "text-[#00AEEF]" : ""
                   }`}
                 >
                   {getInvestmentData(year, "total")}
@@ -265,7 +265,7 @@ const PlatinumTable = () => {
                   <td
                     key={year}
                     className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                      year >= 2025 ? "text-accent" : ""
+                      year >= 2025 ? "text-[#00AEEF]" : ""
                     }`}
                   >
                     {getInvestmentData(year, key)}
@@ -282,7 +282,7 @@ const PlatinumTable = () => {
                 <td
                   key={year}
                   className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                    year >= 2025 ? "text-accent" : ""
+                    year >= 2025 ? "text-[#00AEEF]" : ""
                   }`}
                 >
                   {year >= 2025
@@ -300,7 +300,7 @@ const PlatinumTable = () => {
                 <td
                   key={year}
                   className={`text-right p-1 md:px-2 md:py-2 border border-gray-200 min-w-[3rem] md:w-24 ${
-                    year >= 2025 ? "text-accent" : ""
+                    year >= 2025 ? "text-[#00AEEF]" : ""
                   }`}
                 >
                   {year >= 2025

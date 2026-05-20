@@ -53,7 +53,7 @@
 //         <div className="relative w-28 flex flex-col mb-6">
 //           <label
 //             htmlFor="symbol"
-//             className="absolute top-[-8px] left-[8px] px-1 bg-white text-accent text-[0.7rem] rounded-lg"
+//             className="absolute top-[-8px] left-[8px] px-1 bg-white text-[#00AEEF] text-[0.7rem] rounded-lg"
 //           >
 //             Symbol
 //           </label>
@@ -74,7 +74,7 @@
 //         <div className="relative w-28 flex flex-col mb-6">
 //           <label
 //             htmlFor="tradeType"
-//             className="absolute top-[-8px] left-[8px] px-1 bg-white text-accent text-[0.7rem] rounded-lg"
+//             className="absolute top-[-8px] left-[8px] px-1 bg-white text-[#00AEEF] text-[0.7rem] rounded-lg"
 //           >
 //             Trade Type
 //           </label>
@@ -96,7 +96,7 @@
 //         <div className="relative w-34 flex flex-col mb-6">
 //           <label
 //             htmlFor="startDate"
-//             className="absolute top-[-8px] left-[8px] px-1 bg-white text-accent text-[0.7rem] rounded-lg"
+//             className="absolute top-[-8px] left-[8px] px-1 bg-white text-[#00AEEF] text-[0.7rem] rounded-lg"
 //           >
 //             Start Date
 //           </label>
@@ -113,7 +113,7 @@
 //         <div className="relative w-34 flex flex-col mb-6">
 //           <label
 //             htmlFor="endDate"
-//             className="absolute top-[-8px] left-[8px] px-1 bg-white text-accent text-[0.7rem] rounded-lg"
+//             className="absolute top-[-8px] left-[8px] px-1 bg-white text-[#00AEEF] text-[0.7rem] rounded-lg"
 //           >
 //             End Date
 //           </label>
@@ -153,7 +153,7 @@ const CanadaInsiderTransactionsFilters = ({
         <div className="w-28 flex flex-col mb-6">
           <label
             htmlFor="symbol"
-            className="mb-1 text-accent text-[0.75rem] font-medium"
+            className="mb-1 text-[#00AEEF] text-[0.75rem] font-medium"
           >
             Symbol
           </label>
@@ -175,7 +175,7 @@ const CanadaInsiderTransactionsFilters = ({
         <div className="w-28 flex flex-col mb-6">
           <label
             htmlFor="tradeType"
-            className="mb-1 text-accent text-[0.75rem] font-medium"
+            className="mb-1 text-[#00AEEF] text-[0.75rem] font-medium"
           >
             Trade Type
           </label>
@@ -197,7 +197,7 @@ const CanadaInsiderTransactionsFilters = ({
         <div className="w-34 flex flex-col mb-6">
           <label
             htmlFor="startDate"
-            className="mb-1 text-accent text-[0.75rem] font-medium"
+            className="mb-1 text-[#00AEEF] text-[0.75rem] font-medium"
           >
             Start Date
           </label>
@@ -214,7 +214,7 @@ const CanadaInsiderTransactionsFilters = ({
         <div className="w-34 flex flex-col mb-6">
           <label
             htmlFor="endDate"
-            className="mb-1 text-accent text-[0.75rem] font-medium"
+            className="mb-1 text-[#00AEEF] text-[0.75rem] font-medium"
           >
             End Date
           </label>

@@ -217,7 +217,7 @@
 //                   onClick={() =>
 //                     !isCheckingStock && handleRowClick(stock.stock_ticker)
 //                   }
-//                   className={`hover:bg-accent/10 border-b border-date/10 text-[13px] ${
+//                   className={`hover:bg-[#00AEEF]/10 border-b border-date/10 text-[13px] ${
 //                     isCheckingStock ? "cursor-wait" : "cursor-pointer"
 //                   }`}
 //                 >
@@ -496,7 +496,7 @@
 //               placeholder="Search watchlist..."
 //               value={searchQuery}
 //               onChange={(e) => setSearchQuery(e.target.value)}
-//               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-accent text-sm"
+//               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-[#00AEEF] text-sm"
 //             />
 //           </div>
 //         </div>
@@ -545,7 +545,7 @@
 //                     onClick={() =>
 //                       !isCheckingStock && handleRowClick(stock.stock_ticker)
 //                     }
-//                     className={`hover:bg-accent/10 border-b border-date/10 text-[13px] ${
+//                     className={`hover:bg-[#00AEEF]/10 border-b border-date/10 text-[13px] ${
 //                       isCheckingStock ? "cursor-wait" : "cursor-pointer"
 //                     }`}
 //                   >
@@ -648,7 +648,7 @@
 //             <input
 //               type="text"
 //               placeholder="Search stocks..."
-//               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-accent text-sm"
+//               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-[#00AEEF] text-sm"
 //               value={searchQuery}
 //               onChange={handleSearch}
 //             />
@@ -687,7 +687,7 @@ const Watchlist = ({ userData }) => {
             <input
               type="text"
               placeholder="Search stocks..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-accent text-sm"
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-[#00AEEF] text-sm"
               value={searchQuery}
               onChange={handleSearch}
             />

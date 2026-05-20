@@ -12,22 +12,24 @@ const PressRelease = () => {
   useEffect(() => {
     const fetchPressReleases = async () => {
       try {
-        console.log('Fetching press releases from:', PRESS_RELEASE);
+        console.log("Fetching press releases from:", PRESS_RELEASE);
         const res = await fetch(PRESS_RELEASE);
-        
+
         if (!res.ok) {
-          console.warn(`Press releases API returned ${res.status} — showing empty state`);
+          console.warn(
+            `Press releases API returned ${res.status} — showing empty state`,
+          );
           setPressReleases([]);
           setLoading(false);
           return;
         }
-        
+
         const data = await res.json();
-        console.log('Press releases data:', data);
+        console.log("Press releases data:", data);
         setPressReleases(Array.isArray(data) ? data : []);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching press releases:', error);
+        console.error("Error fetching press releases:", error);
         setError(error.message);
         setPressReleases([]);
         setLoading(false);
@@ -44,7 +46,7 @@ const PressRelease = () => {
 
   // Format date function
   const formatDate = (dateString) => {
-    if (!dateString) return '';
+    if (!dateString) return "";
     try {
       return new Date(dateString).toLocaleDateString("en-US", {
         year: "numeric",
@@ -53,7 +55,7 @@ const PressRelease = () => {
       });
     } catch (error) {
       console.warn("Invalid date format:", dateString);
-      return '';
+      return "";
     }
   };
 
@@ -115,26 +117,26 @@ const PressRelease = () => {
                 {/* Ticker Badge */}
                 {release.ticker && (
                   <div className="mb-2">
-                    <span className="bg-accent text-[11px] rounded-sm text-white px-2 py-1">
+                    <span className="bg-[#00AEEF] text-[11px] rounded-sm text-white px-2 py-1">
                       {release.ticker}
                     </span>
                   </div>
                 )}
-                
+
                 {/* Title */}
                 <h3 className="text-[15px] leading-6 mb-1 font-medium group-hover:underline">
                   {release.title && release.title.length > 120
                     ? `${release.title.substring(0, 120)}...`
-                    : release.title || 'No title available'}
+                    : release.title || "No title available"}
                 </h3>
-                
+
                 {/* Company Name */}
                 {release.company_name && (
                   <p className="text-[13px] text-gray-600 mb-1">
                     {release.company_name}
                   </p>
                 )}
-                
+
                 {/* Date */}
                 <div className="text-[12px] text-gray-500">
                   {formatDate(release.date || release.created_at)}

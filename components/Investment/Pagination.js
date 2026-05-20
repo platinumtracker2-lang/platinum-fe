@@ -26,8 +26,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className={`mx-1 px-[10px] text-[16px] py-1 rounded ${
-          currentPage === 1 ? "" : "text-accent"
-        } text-accent`}
+          currentPage === 1 ? "" : "text-[#00AEEF]"
+        } text-[#00AEEF]`}
       >
         <IoIosArrowBack />
       </button>
@@ -39,8 +39,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           onClick={() => onPageChange(page)}
           className={`mx-1 px-[10px] text-[12px] py-1 rounded ${
             page === currentPage
-              ? "bg-accent"
-              : "bg-accent/80 hover:bg-accent/60"
+              ? "bg-[#00AEEF]"
+              : "bg-[#00AEEF]/80 hover:bg-[#00AEEF]/60"
           } text-white`}
         >
           {page}
@@ -52,8 +52,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className={`mx-1 px-[10px] text-[16px] py-1 rounded ${
-          currentPage === totalPages ? "" : "text-accent"
-        } text-accent`}
+          currentPage === totalPages ? "" : "text-[#00AEEF]"
+        } text-[#00AEEF]`}
       >
         <IoIosArrowForward />
       </button>

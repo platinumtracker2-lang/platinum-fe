@@ -10,7 +10,7 @@ const StayAhead = () => {
   const features = [
     {
       title: "Platinum Stock Screener",
-      icon: <LuCrown className="w-6 h-6 text-accent" />,
+      icon: <LuCrown className="w-6 h-6 text-[#00AEEF]" />,
       description: [
         "Use our Platinum Stock screener to find suitable Platinum stocks",
         "Search by Jurisdiction, stock exchange, marketcap",
@@ -19,7 +19,7 @@ const StayAhead = () => {
     },
     {
       title: "Platinum News",
-      icon: <IoNewspaperOutline className="w-6 h-6 text-accent" />,
+      icon: <IoNewspaperOutline className="w-6 h-6 text-[#00AEEF]" />,
       description: [
         "Stay ahead with up to date Platinum News",
         "Track most recent press releases on all Platinum stocks",
@@ -28,7 +28,7 @@ const StayAhead = () => {
     },
     {
       title: "Track Insider Transactions",
-      icon: <AiOutlineSetting className="w-6 h-6 text-accent" />,
+      icon: <AiOutlineSetting className="w-6 h-6 text-[#00AEEF]" />,
       description: [
         "See if insiders are buying or selling your Platinum stocks",
         "See recent insider trades so you can stay ahead of the game",
@@ -49,7 +49,7 @@ const StayAhead = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-accent p-4 sm:p-8 py-12 sm:py-20 relative overflow-hidden"
+      className="bg-[#00AEEF] p-4 sm:p-8 py-12 sm:py-20 relative overflow-hidden"
     >
       {/* Decorative Background Lines */}
       <div className="absolute inset-0 pointer-events-none">
@@ -73,13 +73,13 @@ const StayAhead = () => {
               Stay ahead with real-time Platinum news, price and analysis
             </h1>
             <p className="text-sm text-white/80 font-medium mb-4 sm:mb-8">
-              Sign up for Platinum Tracker's to gain access to Platinum Tracker's full
-              suite of research tools
+              Sign up for Platinum Tracker's to gain access to Platinum
+              Tracker's full suite of research tools
             </p>
           </div>
           <Link
             href="/auth/signup"
-            className="bg-white hover:bg-white/90 lg:bg-white lg:hover:bg-white/90 text-center text-accent font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded w-full text-sm"
+            className="bg-white hover:bg-white/90 lg:bg-white lg:hover:bg-white/90 text-center text-[#00AEEF] font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded w-full text-sm"
           >
             SUBSCRIBE TODAY
           </Link>
@@ -101,10 +101,10 @@ const StayAhead = () => {
               <Link href={feature.link}>
                 <div className="bg-white/95 backdrop-blur-sm p-4 sm:p-6 py-8 sm:py-12 pb-12 sm:pb-16 rounded-lg flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1">
                   <div>
-                    <div className="flex justify-center mb-4 bg-accent/25 rounded-full w-12 sm:w-14 h-12 sm:h-14 mx-auto items-center group-hover:bg-accent/30 transition-colors">
+                    <div className="flex justify-center mb-4 bg-[#00AEEF]/25 rounded-full w-12 sm:w-14 h-12 sm:h-14 mx-auto items-center group-hover:bg-[#00AEEF]/30 transition-colors">
                       {feature.icon}
                     </div>
-                    <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-center group-hover:text-accent transition-colors cambay">
+                    <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-center group-hover:text-[#00AEEF] transition-colors cambay">
                       {feature.title}
                     </h3>
                     <ul className="space-y-2 sm:space-y-3">

@@ -13,17 +13,19 @@ const MostPopularNews = () => {
       try {
         setLoading(true);
         const response = await fetch(STOCK_NEWS);
-        
+
         if (!response.ok) {
-          console.warn(`Stock news API returned ${response.status} — showing empty state`);
+          console.warn(
+            `Stock news API returned ${response.status} — showing empty state`,
+          );
           setNews([]);
           setLoading(false);
           return;
         }
-        
+
         const data = await response.json();
-        console.log('Most Popular News data:', data);
-        
+        console.log("Most Popular News data:", data);
+
         // Slice to get news starting from 6th item and limit to 8 items
         setNews(Array.isArray(data) ? data.slice(10, 18) : []);
         setLoading(false);
@@ -90,7 +92,7 @@ const MostPopularNews = () => {
           >
             {/* Number vertically aligned */}
             <div className="flex flex-col items-center justify-center mr-4">
-              <span className="text-3xl font-bold text-black/30 group-hover:text-accent">
+              <span className="text-3xl font-bold text-black/30 group-hover:text-[#00AEEF]">
                 {index + 1}
               </span>
             </div>
@@ -99,7 +101,7 @@ const MostPopularNews = () => {
               {/* Ticker Badge */}
               {item.ticker && (
                 <div className="mb-2">
-                  <span className="bg-accent text-[10px] rounded-sm text-white px-2 py-1">
+                  <span className="bg-[#00AEEF] text-[10px] rounded-sm text-white px-2 py-1">
                     {item.ticker}
                   </span>
                 </div>

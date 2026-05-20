@@ -16,7 +16,7 @@
 //         <div className="w-full md:w-[60%] lg:w-[52%]">
 //           <h1 className="text-2xl sm:text-3xl md:text-[3rem] lg:text-[3.1rem] font-bold text-white leading-tight sm:leading-[1.15]">
 //             Your Source for the Latest{" "}
-//             <span className="text-accent">Platinum Market Updates</span>
+//             <span className="text-[#00AEEF]">Platinum Market Updates</span>
 //           </h1>
 //         </div>
 //       </div>
@@ -52,7 +52,7 @@
 //         <div className="w-full md:w-[60%] lg:w-[52%]">
 //           <h1 className="text-2xl sm:text-3xl md:text-[3rem] lg:text-[3.1rem] font-bold text-white leading-tight sm:leading-[1.15]">
 //             Your Source for the Latest{" "}
-//             <span className="text-accent">Platinum Market Updates</span>
+//             <span className="text-[#00AEEF]">Platinum Market Updates</span>
 //           </h1>
 //         </div>
 //       </div>
@@ -89,7 +89,7 @@ const VideoHero = () => {
         > */}
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
-            <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
+            <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-[#00AEEF]">
               Lithium Videos
             </p>
 
@@ -99,10 +99,10 @@ const VideoHero = () => {
             </h1>
 
             <p className="text-sm md:text-base mb-10">
-              Enhance your Lithium market knowledge through our educational video
-              content. From market fundamentals to advanced trading strategies,
-              explore our comprehensive library of featured, company insights,
-              podcasts, and educational resources.
+              Enhance your Lithium market knowledge through our educational
+              video content. From market fundamentals to advanced trading
+              strategies, explore our comprehensive library of featured, company
+              insights, podcasts, and educational resources.
             </p>
 
             <div className="text-xs text-gray-300">

@@ -26,7 +26,7 @@ const DataHero = () => {
         >
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
-            <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
+            <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-[#00AEEF]">
               Lithium Data
             </p>
 

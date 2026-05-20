@@ -21,18 +21,18 @@ const VerifyEmail = () => {
       // Simulate API call to verify email
       // const response = await axiosCreate.get(`${VERIFY_EMAIL_API}/${uid}/${token}`);
       const response = await axios.get(
-        `${BASE_URL}${VERIFY_EMAIL_API}/${uid}/${token}`
+        `${BASE_URL}${VERIFY_EMAIL_API}/${uid}/${token}`,
       );
       if (response?.data) {
         toast.success(
-          response?.data?.message ?? "Email verified successfully!"
+          response?.data?.message ?? "Email verified successfully!",
         );
         router.push("./../../login");
       }
     } catch (error) {
       toast.error(
         error?.response?.data?.error ??
-          "Failed to verify email. Please try again."
+          "Failed to verify email. Please try again.",
       );
     } finally {
       setIsLoading(false);
@@ -68,7 +68,7 @@ const VerifyEmail = () => {
             whileTap={!isLoading ? { scale: 0.98 } : {}}
             onClick={handleVerifyEmail}
             disabled={isLoading}
-            className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
+            className="w-full bg-[#00AEEF] text-white py-2 rounded-sm hover:bg-[#00AEEF]/90 transition-all duration-300 ease-in-out"
           >
             {isLoading ? "Verifying..." : "Verify Email"}
           </motion.button>

@@ -229,7 +229,7 @@
 //                   onClick={() =>
 //                     !isCheckingStock && handleRowClick(stock.stock_ticker)
 //                   }
-//                   className={`hover:bg-accent/10 border-b border-date/10 text-[13px] ${
+//                   className={`hover:bg-[#00AEEF]/10 border-b border-date/10 text-[13px] ${
 //                     isCheckingStock ? "cursor-wait" : "cursor-pointer"
 //                   }`}
 //                 >
@@ -346,7 +346,7 @@ const WatchlistContent = ({ userData, searchQuery }) => {
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `https://platinumdjango-production.up.railway.app/api/pgm-stock-detail/?stock_ticker=${stockTicker}`
+        `https://platinumdjango-production.up.railway.app/api/pgm-stock-detail/?stock_ticker=${stockTicker}`,
       );
 
       if (response.data && Object.keys(response.data).length > 0) {
@@ -382,7 +382,7 @@ const WatchlistContent = ({ userData, searchQuery }) => {
     } catch (error) {
       console.error("Error handling row click:", error);
       setErrorMessage(
-        "An error occurred while checking stock details. Please try again later."
+        "An error occurred while checking stock details. Please try again later.",
       );
       setIsModalOpen(true);
     } finally {
@@ -536,7 +536,7 @@ const WatchlistContent = ({ userData, searchQuery }) => {
                   onClick={() =>
                     !isCheckingStock && handleRowClick(stock.stock_ticker)
                   }
-                  className={`hover:bg-accent/10 border-b border-date/10 text-[13px] ${
+                  className={`hover:bg-[#00AEEF]/10 border-b border-date/10 text-[13px] ${
                     isCheckingStock ? "cursor-wait" : "cursor-pointer"
                   }`}
                 >
@@ -560,7 +560,7 @@ const WatchlistContent = ({ userData, searchQuery }) => {
                   </td>
                   <td
                     className={`px-4 py-[12px] ${getColorClass(
-                      stock.stock_details?.intraday_percentage
+                      stock.stock_details?.intraday_percentage,
                     )}`}
                   >
                     {stock.stock_details?.intraday_percentage != null
@@ -572,7 +572,7 @@ const WatchlistContent = ({ userData, searchQuery }) => {
                   </td>
                   <td
                     className={`px-4 py-[12px] ${getColorClass(
-                      stock.stock_details?.ytd_percentage
+                      stock.stock_details?.ytd_percentage,
                     )}`}
                   >
                     {stock.stock_details?.ytd_percentage != null

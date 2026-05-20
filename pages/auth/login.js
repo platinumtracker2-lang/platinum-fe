@@ -116,7 +116,7 @@
 //                         onChange={handleChange}
 //                         onBlur={handleBlur}
 //                         value={values.email}
-//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
 //                       />
 //                       {errors.email && touched.email && (
 //                         <div className="text-red-500 text-sm mt-1">
@@ -132,7 +132,7 @@
 //                         onChange={handleChange}
 //                         onBlur={handleBlur}
 //                         value={values.password}
-//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
 //                       />
 //                       {errors.password && touched.password && (
 //                         <div className="text-red-500 text-sm mt-1">
@@ -147,13 +147,13 @@
 //                           name="rememberMe"
 //                           onChange={handleChange}
 //                           checked={values.rememberMe}
-//                           className="h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
+//                           className="h-4 w-4 text-[#00AEEF] focus:ring-[#00AEEF] border-gray-300 rounded"
 //                         />
 //                         <span className="text-sm">Remember Me</span>
 //                       </label>
 //                       <span
 //                         onClick={() => router.push("./forgot-password")}
-//                         className="text-sm text-accent hover:underline cursor-pointer"
+//                         className="text-sm text-[#00AEEF] hover:underline cursor-pointer"
 //                       >
 //                         Forgot Password?
 //                       </span>
@@ -161,7 +161,7 @@
 //                     <button
 //                       type="submit"
 //                       disabled={isSubmitting}
-//                       className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
+//                       className="w-full bg-[#00AEEF] text-white py-2 rounded-sm hover:bg-[#00AEEF]/90 transition-all duration-300 ease-in-out"
 //                     >
 //                       Login
 //                     </button>
@@ -172,7 +172,7 @@
 //                 Don't have an account?{" "}
 //                 <span
 //                   onClick={() => router.push("./signup")}
-//                   className="text-accent hover:underline cursor-pointer"
+//                   className="text-[#00AEEF] hover:underline cursor-pointer"
 //                 >
 //                   Sign Up
 //                 </span>
@@ -267,7 +267,7 @@ const Login = () => {
         };
 
         document.cookie = `userData=${encodeURIComponent(
-          JSON.stringify(userData)
+          JSON.stringify(userData),
         )}; path=/;`;
         router.push("/");
         toast.success("Login successfully");
@@ -276,7 +276,7 @@ const Login = () => {
       console.error("Error during Login: ", error);
       if (error.response) {
         toast.error(
-          error.response.data?.message || "Invalid login credentials."
+          error.response.data?.message || "Invalid login credentials.",
         );
       } else {
         toast.error("Something went wrong, please try again.");
@@ -326,7 +326,7 @@ const Login = () => {
                     placeholder="Email Address"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+                    className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
                   />
                   {errors.email && (
                     <div className="text-red-500 text-sm mt-1">
@@ -341,7 +341,7 @@ const Login = () => {
                     placeholder="Password"
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+                    className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
                   />
                   {errors.password && (
                     <div className="text-red-500 text-sm mt-1">
@@ -356,13 +356,13 @@ const Login = () => {
                       name="rememberMe"
                       checked={formData.rememberMe}
                       onChange={handleChange}
-                      className="h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
+                      className="h-4 w-4 text-[#00AEEF] focus:ring-[#00AEEF] border-gray-300 rounded"
                     />
                     <span className="text-sm">Remember Me</span>
                   </label>
                   <span
                     onClick={() => router.push("./forgot-password")}
-                    className="text-sm text-accent hover:underline cursor-pointer"
+                    className="text-sm text-[#00AEEF] hover:underline cursor-pointer"
                   >
                     Forgot Password?
                   </span>
@@ -370,7 +370,7 @@ const Login = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
+                  className="w-full bg-[#00AEEF] text-white py-2 rounded-sm hover:bg-[#00AEEF]/90 transition-all duration-300 ease-in-out"
                 >
                   Login
                 </button>
@@ -379,7 +379,7 @@ const Login = () => {
                 Don't have an account?{" "}
                 <span
                   onClick={() => router.push("./signup")}
-                  className="text-accent hover:underline cursor-pointer"
+                  className="text-[#00AEEF] hover:underline cursor-pointer"
                 >
                   Sign Up
                 </span>

@@ -71,7 +71,7 @@ const PlatinumPrice = () => {
               parseFloat(change) > 0 ? "text-green-400" : "text-red-400"
             }`}
           >
-            ¥{formattedChange}
+            {formattedChange}
           </p>
         </div>
         {/* Change Percentage */}

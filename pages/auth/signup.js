@@ -114,7 +114,7 @@
 //                         onChange={handleChange}
 //                         onBlur={handleBlur}
 //                         value={values.fullName}
-//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
 //                       />
 //                       {errors.fullName && touched.fullName && (
 //                         <div className="text-red-500 text-sm mt-1">
@@ -131,7 +131,7 @@
 //                         onChange={handleChange}
 //                         onBlur={handleBlur}
 //                         value={values.email}
-//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
 //                       />
 //                       {errors.email && touched.email && (
 //                         <div className="text-red-500 text-sm mt-1">
@@ -148,7 +148,7 @@
 //                         onChange={handleChange}
 //                         onBlur={handleBlur}
 //                         value={values.password}
-//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
 //                       />
 //                       {errors.password && touched.password && (
 //                         <div className="text-red-500 text-sm mt-1">
@@ -165,7 +165,7 @@
 //                         onChange={handleChange}
 //                         onBlur={handleBlur}
 //                         value={values.confirmPassword}
-//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+//                         className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
 //                       />
 //                       {errors.confirmPassword && touched.confirmPassword && (
 //                         <div className="text-red-500 text-sm mt-1">
@@ -180,15 +180,15 @@
 //                         name="termsAccepted"
 //                         onChange={handleChange}
 //                         checked={values.termsAccepted}
-//                         className="mt-1 h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
+//                         className="mt-1 h-4 w-4 text-[#00AEEF] focus:ring-[#00AEEF] border-gray-300 rounded"
 //                       />
 //                       <span className="text-sm">
 //                         I agree to the{" "}
-//                         <a href="#" className="text-accent hover:underline">
+//                         <a href="#" className="text-[#00AEEF] hover:underline">
 //                           Terms and Conditions
 //                         </a>{" "}
 //                         and{" "}
-//                         <a href="#" className="text-accent hover:underline">
+//                         <a href="#" className="text-[#00AEEF] hover:underline">
 //                           Privacy Policy
 //                         </a>
 //                       </span>
@@ -202,7 +202,7 @@
 //                     <button
 //                       type="submit"
 //                       disabled={isSubmitting}
-//                       className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
+//                       className="w-full bg-[#00AEEF] text-white py-2 rounded-sm hover:bg-[#00AEEF]/90 transition-all duration-300 ease-in-out"
 //                     >
 //                       Create Account
 //                     </button>
@@ -213,7 +213,7 @@
 //                 Already have an account?{" "}
 //                 <button
 //                   onClick={() => router.push("/auth/login")}
-//                   className="text-accent hover:underline"
+//                   className="text-[#00AEEF] hover:underline"
 //                 >
 //                   Login
 //                 </button>
@@ -250,7 +250,7 @@ const validationSchema = Yup.object().shape({
     .min(3, "Username must be at least 3 characters")
     .matches(
       /^[a-zA-Z0-9_]+$/,
-      "Username can only contain letters, numbers, and underscores"
+      "Username can only contain letters, numbers, and underscores",
     )
     .required("Username is required"),
   email: Yup.string()
@@ -266,7 +266,7 @@ const validationSchema = Yup.object().shape({
     .required("Confirm password is required"),
   termsAccepted: Yup.boolean().oneOf(
     [true],
-    "You must accept the terms and conditions"
+    "You must accept the terms and conditions",
   ),
 });
 
@@ -362,7 +362,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.fullName}
-                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+                        className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
                       />
                       {errors.fullName && touched.fullName && (
                         <div className="text-red-500 text-sm mt-1">
@@ -379,7 +379,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.username}
-                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+                        className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
                       />
                       {errors.username && touched.username && (
                         <div className="text-red-500 text-sm mt-1">
@@ -396,7 +396,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.email}
-                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+                        className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
                       />
                       {errors.email && touched.email && (
                         <div className="text-red-500 text-sm mt-1">
@@ -413,7 +413,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
-                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+                        className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
                       />
                       {errors.password && touched.password && (
                         <div className="text-red-500 text-sm mt-1">
@@ -430,7 +430,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.confirmPassword}
-                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
+                        className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 placeholder:text-black/40 placeholder:text-sm"
                       />
                       {errors.confirmPassword && touched.confirmPassword && (
                         <div className="text-red-500 text-sm mt-1">
@@ -445,15 +445,15 @@ const Signup = () => {
                         name="termsAccepted"
                         onChange={handleChange}
                         checked={values.termsAccepted}
-                        className="mt-1 h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
+                        className="mt-1 h-4 w-4 text-[#00AEEF] focus:ring-[#00AEEF] border-gray-300 rounded"
                       />
                       <span className="text-sm">
                         I agree to the{" "}
-                        <a href="#" className="text-accent hover:underline">
+                        <a href="#" className="text-[#00AEEF] hover:underline">
                           Terms and Conditions
                         </a>{" "}
                         and{" "}
-                        <a href="#" className="text-accent hover:underline">
+                        <a href="#" className="text-[#00AEEF] hover:underline">
                           Privacy Policy
                         </a>
                       </span>
@@ -467,7 +467,7 @@ const Signup = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
+                      className="w-full bg-[#00AEEF] text-white py-2 rounded-sm hover:bg-[#00AEEF]/90 transition-all duration-300 ease-in-out"
                     >
                       Create Account
                     </button>
@@ -478,7 +478,7 @@ const Signup = () => {
                 Already have an account?{" "}
                 <button
                   onClick={() => router.push("/auth/login")}
-                  className="text-accent hover:underline"
+                  className="text-[#00AEEF] hover:underline"
                 >
                   Login
                 </button>

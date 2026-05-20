@@ -14,7 +14,7 @@ const TableCanadaInsiderTransactions = ({
   const totalPages = Math.ceil(homeData.length / rowsPerPage);
 
   const getColorClass = (value) => {
-    const num = parseFloat((String(value || "")).replace(/[^\d.-]/g, ""));
+    const num = parseFloat(String(value || "").replace(/[^\d.-]/g, ""));
     if (isNaN(num)) return "";
     return num < 0 ? "text-red-500" : "text-green-500";
   };
@@ -42,7 +42,7 @@ const TableCanadaInsiderTransactions = ({
   const getCountryFlag = (countryName) => {
     const name = countryName || "Canada";
     const country = flags.countries.find(
-      (flag) => flag.name.toLowerCase() === name.toLowerCase()
+      (flag) => flag.name.toLowerCase() === name.toLowerCase(),
     );
     return country ? country.svg : name;
   };
@@ -110,7 +110,7 @@ const TableCanadaInsiderTransactions = ({
             {dataToShow.map((data, index) => (
               <tr
                 key={data.id || index}
-                className="hover:bg-accent/10 py-2 border-b border-date/10 text-[13px] text-start"
+                className="hover:bg-[#00AEEF]/10 py-2 border-b border-date/10 text-[13px] text-start"
               >
                 <td
                   className="px-4 py-[10px] scale-90"

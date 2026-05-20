@@ -66,7 +66,7 @@ const CommunitySidebar = ({
     setLoading(true);
     try {
       const response = await axiosInstance.get(
-        `/community/forum/posts/?hashtag=${cleanedQuery}`
+        `/community/forum/posts/?hashtag=${cleanedQuery}`,
       );
 
       const postsWithImage = response.data.map((post) => ({
@@ -126,7 +126,7 @@ const CommunitySidebar = ({
 
                   if (!allowedTypes.includes(file.type)) {
                     toast.error(
-                      "Invalid file type. Please upload JPEG, PNG, or GIF."
+                      "Invalid file type. Please upload JPEG, PNG, or GIF.",
                     );
                     return;
                   }
@@ -144,7 +144,7 @@ const CommunitySidebar = ({
 
             <button
               onClick={sendPost}
-              className="bg-accent hover:bg-accent/90 text-white p-2 rounded-md flex items-center justify-center space-x-1 text-sm"
+              className="bg-[#00AEEF] hover:bg-[#00AEEF]/90 text-white p-2 rounded-md flex items-center justify-center space-x-1 text-sm"
             >
               <RiSendPlaneFill className="w-4 h-4" />
               <span>Post</span>
@@ -174,7 +174,7 @@ const CommunitySidebar = ({
           </p>
           <button
             onClick={() => router.push("/auth/login")}
-            className="bg-accent text-white px-4 py-2 rounded-sm hover:bg-text/90 text-sm transition-colors duration-300"
+            className="bg-[#00AEEF] text-white px-4 py-2 rounded-sm hover:bg-text/90 text-sm transition-colors duration-300"
           >
             Log In
           </button>

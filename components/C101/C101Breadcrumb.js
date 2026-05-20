@@ -13,13 +13,13 @@ const C101Breadcrumb = ({ link, title }) => {
         <ul className="flex gap-x-1 md:gap-x-2 text-[12px] md:text-sm text-black/70 lato tracking-[0.3px]">
           <button
             onClick={handleBack}
-            className="hover:text-accent font-medium transition-all duration-200 cursor-pointer"
+            className="hover:text-[#00AEEF] font-medium transition-all duration-200 cursor-pointer"
           >
             Lithium 101
           </button>
           <span> &gt; </span>
           <a
-            className="hover:text-accent font-medium transition-all duration-200"
+            className="hover:text-[#00AEEF] font-medium transition-all duration-200"
             href={link}
           >
             {title}

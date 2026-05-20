@@ -19,22 +19,22 @@ const CommunityRightSide = ({
   sendPost,
 }) => {
   const [showAllPosts, setShowAllPosts] = useState(false);
-  const { 
-    loadMore, 
-    hasMore, 
+  const {
+    loadMore,
+    hasMore,
     originalPosts,
     count,
-    loading, 
+    loading,
     hashtag,
     cashtag,
-    updateState, 
+    updateState,
     selectedStock,
     searchQuery,
     isSearchActive,
     filterPosts,
     clearSearch,
     clearSearchText,
-    clearCashTag
+    clearCashTag,
   } = useForumPosts();
 
   const handleShowAllPosts = () => {
@@ -62,18 +62,20 @@ const CommunityRightSide = ({
           {/* Search Results Indicator */}
           {isSearchActive && (
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-              <span className="bg-accent/10 text-accent px-3 py-1.5 rounded text-xs">
+              <span className="bg-[#00AEEF]/10 text-[#00AEEF] px-3 py-1.5 rounded text-xs">
                 {count} Results
               </span>
-              { searchQuery && <button
-                onClick={() => {
-                  clearSearchText();
-                  setShowAllPosts(false);
-                }}
-                className="bg-red-500 text-white px-3 py-1.5 rounded text-xs flex items-center"
-              >
-                Clear
-              </button>}
+              {searchQuery && (
+                <button
+                  onClick={() => {
+                    clearSearchText();
+                    setShowAllPosts(false);
+                  }}
+                  className="bg-red-500 text-white px-3 py-1.5 rounded text-xs flex items-center"
+                >
+                  Clear
+                </button>
+              )}
             </div>
           )}
         </div>
@@ -109,7 +111,7 @@ const CommunityRightSide = ({
             {isSearchActive && (
               <button
                 onClick={handleShowAllPosts}
-                className="bg-accent/10 text-accent px-2 py-2 rounded text-sm hover:bg-accent/20 transition-colors"
+                className="bg-[#00AEEF]/10 text-[#00AEEF] px-2 py-2 rounded text-sm hover:bg-[#00AEEF]/20 transition-colors"
               >
                 View all posts
               </button>

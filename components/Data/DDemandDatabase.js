@@ -136,7 +136,7 @@ const DDemandDatabase = () => {
       // Extract the table ID from the tables array
       const allTables = tables.reduce(
         (acc, category) => [...acc, ...category.tables],
-        []
+        [],
       );
       const tableData = allTables.find((table) => table.path === path);
       if (tableData) {
@@ -154,8 +154,8 @@ const DDemandDatabase = () => {
           Demand Database
         </h1>
         <p className="text-black/80 mt-2">
-          Explore detailed data on the demand for platinum and other Lithiums across
-          various industries. Gain insights into consumption patterns,
+          Explore detailed data on the demand for platinum and other Lithiums
+          across various industries. Gain insights into consumption patterns,
           sector-specific demand drivers, and market trends shaping the future
           of these critical metals.
         </p>
@@ -183,7 +183,7 @@ const DDemandDatabase = () => {
                 </h3>
                 <p className="mt-1.5 mb-1 font-medium text-black/50 text-sm">
                   Source:{" "}
-                  <span className="hover:text-accent transition-all duration-200 text-sm">
+                  <span className="hover:text-[#00AEEF] transition-all duration-200 text-sm">
                     {chart.source}
                   </span>
                 </p>
@@ -221,7 +221,7 @@ const DDemandDatabase = () => {
                           {table.data[0].map((header, index) => (
                             <th
                               key={index}
-                              className="text-left p-0.5 sm:p-2 text-accent border-b border-r border-gray-200 font-medium break-words"
+                              className="text-left p-0.5 sm:p-2 text-[#00AEEF] border-b border-r border-gray-200 font-medium break-words"
                             >
                               {header}
                             </th>
@@ -281,7 +281,7 @@ const DDemandDatabase = () => {
                             {table.data[0].map((header, index) => (
                               <th
                                 key={index}
-                                className="text-left p-2 text-accent border-b border-r border-gray-200 font-medium"
+                                className="text-left p-2 text-[#00AEEF] border-b border-r border-gray-200 font-medium"
                               >
                                 {header}
                               </th>

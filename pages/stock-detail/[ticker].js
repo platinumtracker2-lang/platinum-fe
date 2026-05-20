@@ -74,7 +74,7 @@ const StockDetailPage = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://platinumdjango-production.up.railway.app/api/pgm-stock-detail/?stock_ticker=${ticker}`
+          `https://platinumdjango-production.up.railway.app/api/pgm-stock-detail/?stock_ticker=${ticker}`,
         );
         if (!response.ok) {
           throw new Error("Stock data not found");
@@ -112,7 +112,7 @@ const StockDetailPage = () => {
         });
 
         const followedStock = response.data.find(
-          (stock) => stock.stock_ticker === ticker
+          (stock) => stock.stock_ticker === ticker,
         );
 
         setIsFollowed(!!followedStock);
@@ -201,7 +201,7 @@ const StockDetailPage = () => {
             headers: {
               Authorization: `Bearer ${token}`,
             },
-          }
+          },
         );
         setIsFollowed(true);
         setFollowedStockId(response.data.id);
@@ -243,7 +243,7 @@ const StockDetailPage = () => {
           </div>
           <button
             onClick={() => router.back()}
-            className="px-4 py-2 bg-accent text-white rounded-md hover:bg-accent/90 transition-colors"
+            className="px-4 py-2 bg-[#00AEEF] text-white rounded-md hover:bg-[#00AEEF]/90 transition-colors"
           >
             Go Back
           </button>
@@ -282,7 +282,7 @@ const StockDetailPage = () => {
                 onClick={handleFollowToggle}
                 className={`px-3 py-1 rounded-md text-sm font-medium ${
                   isFollowed
-                    ? "bg-accent hover:bg-accent/90 text-white"
+                    ? "bg-[#00AEEF] hover:bg-[#00AEEF]/90 text-white"
                     : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 }`}
               >

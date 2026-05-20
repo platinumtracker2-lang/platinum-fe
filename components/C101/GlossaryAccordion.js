@@ -25,14 +25,14 @@ const GlossaryAccordion = () => {
   const AccordionItem = ({ item, index, activeIndex, column }) => (
     <div className="border-b border-gray-200 rounded-md overflow-hidden group">
       <button
-        className="w-full px-2 py-4 text-left bg-white group-hover:text-accent flex justify-between items-center"
+        className="w-full px-2 py-4 text-left bg-white group-hover:text-[#00AEEF] flex justify-between items-center"
         onClick={() => toggleAccordion(index, column)}
       >
         <span className="font-medium">{item.title}</span>
         {activeIndex === index ? (
-          <FiChevronUp className="w-5 h-5 text-gray-500 group-hover:text-accent" />
+          <FiChevronUp className="w-5 h-5 text-gray-500 group-hover:text-[#00AEEF]" />
         ) : (
-          <FiChevronDown className="w-5 h-5 text-gray-500 group-hover:text-accent" />
+          <FiChevronDown className="w-5 h-5 text-gray-500 group-hover:text-[#00AEEF]" />
         )}
       </button>
       <AnimatePresence>

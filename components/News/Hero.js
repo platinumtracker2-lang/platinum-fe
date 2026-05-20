@@ -14,22 +14,24 @@ const Hero = () => {
       try {
         console.log("Fetching hero news from:", STOCK_NEWS);
         const response = await fetch(STOCK_NEWS);
-        
+
         if (!response.ok) {
-          console.warn(`Stock news API returned ${response.status} — showing empty state`);
+          console.warn(
+            `Stock news API returned ${response.status} — showing empty state`,
+          );
           setNews([]);
           setLoading(false);
           return;
         }
-        
+
         const data = await response.json();
         console.log("Hero news data:", data);
-        
+
         // Filter news with images for better hero display
-        const newsWithImages = Array.isArray(data) 
-          ? data.filter(item => item.image_url).slice(0, 10)
+        const newsWithImages = Array.isArray(data)
+          ? data.filter((item) => item.image_url).slice(0, 10)
           : [];
-        
+
         setNews(newsWithImages.length > 0 ? newsWithImages : data.slice(0, 10));
         setLoading(false);
       } catch (error) {
@@ -63,12 +65,17 @@ const Hero = () => {
     return (
       <div className="relative bg-black w-full py-12">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="relative flex items-center justify-center overflow-hidden rounded-lg" style={{ height: "350px" }}>
+          <div
+            className="relative flex items-center justify-center overflow-hidden rounded-lg"
+            style={{ height: "350px" }}
+          >
             <div className="text-white text-center">
-              <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent mb-4">
+              <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-[#00AEEF] mb-4">
                 Platinum News
               </p>
-              <h1 className="text-2xl lg:text-4xl font-bold cambay">Loading latest news...</h1>
+              <h1 className="text-2xl lg:text-4xl font-bold cambay">
+                Loading latest news...
+              </h1>
             </div>
           </div>
         </div>
@@ -80,12 +87,17 @@ const Hero = () => {
     return (
       <div className="relative bg-black w-full py-12">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="relative flex items-center justify-center overflow-hidden rounded-lg" style={{ height: "350px" }}>
+          <div
+            className="relative flex items-center justify-center overflow-hidden rounded-lg"
+            style={{ height: "350px" }}
+          >
             <div className="text-white text-center">
               <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-red-500 mb-4">
                 Error
               </p>
-              <h1 className="text-2xl lg:text-4xl font-bold cambay">Failed to load news</h1>
+              <h1 className="text-2xl lg:text-4xl font-bold cambay">
+                Failed to load news
+              </h1>
               <p className="text-base mt-4">{error}</p>
             </div>
           </div>
@@ -98,12 +110,17 @@ const Hero = () => {
     return (
       <div className="relative bg-black w-full py-12">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="relative flex items-center justify-center overflow-hidden rounded-lg" style={{ height: "350px" }}>
+          <div
+            className="relative flex items-center justify-center overflow-hidden rounded-lg"
+            style={{ height: "350px" }}
+          >
             <div className="text-white text-center">
-              <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent mb-4">
+              <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-[#00AEEF] mb-4">
                 Platinum News
               </p>
-              <h1 className="text-2xl lg:text-4xl font-bold cambay">No news available</h1>
+              <h1 className="text-2xl lg:text-4xl font-bold cambay">
+                No news available
+              </h1>
             </div>
           </div>
         </div>
@@ -134,7 +151,7 @@ const Hero = () => {
         >
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
-            <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
+            <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-[#00AEEF]">
               Platinum News
             </p>
 
@@ -150,20 +167,20 @@ const Hero = () => {
             <h1 className="text-2xl lg:text-4xl font-bold my-4 line-clamp-2 cambay">
               {news[currentIndex]?.title || "Exciting News Coming Soon"}
             </h1>
-            
+
             {/* Company Name */}
             {news[currentIndex]?.company_name && (
               <p className="text-sm text-gray-300 mb-2">
                 {news[currentIndex].company_name}
               </p>
             )}
-            
+
             <p className="text-base mb-10">
               {news[currentIndex]?.summary
                 ? `${news[currentIndex]?.summary.substring(0, 200)}...`
                 : news[currentIndex]?.title
-                ? `${news[currentIndex]?.title.substring(0, 200)}...`
-                : "Catch up on our latest Platinum news and updates."}
+                  ? `${news[currentIndex]?.title.substring(0, 200)}...`
+                  : "Catch up on our latest Platinum news and updates."}
             </p>
             <div className="text-xs text-gray-300 flex items-center space-x-1">
               {/* Time Icon */}

@@ -22,7 +22,7 @@ const ChartSubpage = ({ chart }) => {
         <h1 className="text-2xl font-bold">{chart.title}</h1>
         <p className="mt-1.5 mb-1 font-medium text-black/50 text-sm">
           Source:{" "}
-          <span className="hover:text-accent transition-all duration-200 text-sm">
+          <span className="hover:text-[#00AEEF] transition-all duration-200 text-sm">
             {chart.source}
           </span>
         </p>
@@ -43,8 +43,19 @@ const ChartSubpage = ({ chart }) => {
 // Generate static paths for all chart IDs
 export async function getStaticPaths() {
   const charts = [
-    { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 },
-    { id: 7 }, { id: 8 }, { id: 9 }, { id: 10 }, { id: 11 }, { id: 12 }, { id: 13 }
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+    { id: 7 },
+    { id: 8 },
+    { id: 9 },
+    { id: 10 },
+    { id: 11 },
+    { id: 12 },
+    { id: 13 },
   ];
 
   const paths = charts.map((chart) => ({

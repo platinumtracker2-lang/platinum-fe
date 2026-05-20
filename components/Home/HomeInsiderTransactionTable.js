@@ -14,7 +14,7 @@ const HomeInsiderTransactionTable = () => {
     const fetchInsiderTransactions = async () => {
       try {
         const response = await fetch(
-          "https://web-production-d96b.up.railway.app/api/insider-transactions/"
+          "https://web-production-d96b.up.railway.app/api/insider-transactions/",
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -37,7 +37,7 @@ const HomeInsiderTransactionTable = () => {
   const getCountryFlag = (countryName) => {
     const name = countryName || "US";
     const country = flags.countries.find(
-      (flag) => flag.name.toLowerCase() === name.toLowerCase()
+      (flag) => flag.name.toLowerCase() === name.toLowerCase(),
     );
     return country ? country.svg : name;
   };
@@ -77,7 +77,7 @@ const HomeInsiderTransactionTable = () => {
   const startIndex = (currentPage - 1) * rowsPerPage;
   const dataToShow = insiderTransactionsData.slice(
     startIndex,
-    startIndex + rowsPerPage
+    startIndex + rowsPerPage,
   );
 
   const handleNextPage = () => {
@@ -129,7 +129,7 @@ const HomeInsiderTransactionTable = () => {
                 return (
                   <tr
                     key={data.id}
-                    className="hover:bg-accent/10 py-2 border-b border-date/10 text-[13px] text-start"
+                    className="hover:bg-[#00AEEF]/10 py-2 border-b border-date/10 text-[13px] text-start"
                   >
                     <td
                       className="px-4 py-[10px] scale-90"

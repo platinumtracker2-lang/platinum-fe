@@ -22,7 +22,7 @@ const StockNewsPage = () => {
 
       try {
         const response = await fetch(
-          "https://platinumdjango-production.up.railway.app/api/stock-news/"
+          "https://platinumdjango-production.up.railway.app/api/stock-news/",
         );
 
         if (!response.ok) throw new Error("Failed to fetch press release");
@@ -30,7 +30,7 @@ const StockNewsPage = () => {
         const allPressReleases = await response.json();
         // Modified to ensure string comparison
         const specificPressRelease = allPressReleases.find(
-          (release) => release.id.toString() === id.toString()
+          (release) => release.id.toString() === id.toString(),
         );
 
         if (specificPressRelease) {
@@ -94,7 +94,7 @@ const StockNewsPage = () => {
 
           <button
             onClick={() => router.back()}
-            className="mt-6 text-accent hover:text-accent/90 flex items-center"
+            className="mt-6 text-[#00AEEF] hover:text-[#00AEEF]/90 flex items-center"
           >
             <span className="mr-2 scale-110">{"<"} </span> Back to news
           </button>

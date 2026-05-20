@@ -133,7 +133,7 @@ const DWPICSupply = () => {
             </h3>
             <p className="mt-1.5 mb-1 font-medium text-black/50 text-sm">
               Source:{" "}
-              <span className="hover:text-accent transition-all duration-200 text-sm">
+              <span className="hover:text-[#00AEEF] transition-all duration-200 text-sm">
                 {chart.source}
               </span>
             </p>

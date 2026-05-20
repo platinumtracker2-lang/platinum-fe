@@ -64,7 +64,7 @@
 //             rel="noopener noreferrer"
 //             className="flex flex-col space-y-2 pb-4 border-b group"
 //           >
-//             <h3 className="text-md font-bold text-gray-800 group-hover:text-accent transition-colors leading-tight">
+//             <h3 className="text-md font-bold text-gray-800 group-hover:text-[#00AEEF] transition-colors leading-tight">
 //               {item.title}
 //             </h3>
 //             <span className="text-xs text-gray-500">
@@ -92,19 +92,21 @@ const MoreNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        console.log('Fetching more news from:', STOCK_NEWS);
+        console.log("Fetching more news from:", STOCK_NEWS);
         const response = await fetch(STOCK_NEWS);
-        
+
         if (!response.ok) {
-          console.warn(`Stock news API returned ${response.status} — showing empty state`);
+          console.warn(
+            `Stock news API returned ${response.status} — showing empty state`,
+          );
           setNewsData([]);
           setLoading(false);
           return;
         }
-        
+
         const data = await response.json();
-        console.log('More news data:', data);
-        
+        console.log("More news data:", data);
+
         if (!data || data.length === 0) {
           throw new Error("No news available");
         }
@@ -120,7 +122,7 @@ const MoreNews = () => {
         setNews(processedData);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching more news:', err);
+        console.error("Error fetching more news:", err);
         setError(err.message);
         setLoading(false);
       }
@@ -206,23 +208,21 @@ const MoreNews = () => {
             {/* Ticker Badge */}
             {item.ticker && (
               <div className="mb-1">
-                <span className="bg-accent text-[10px] rounded-sm text-white px-2 py-1">
+                <span className="bg-[#00AEEF] text-[10px] rounded-sm text-white px-2 py-1">
                   {item.ticker}
                 </span>
               </div>
             )}
-            
-            <h3 className="text-md font-bold text-gray-800 group-hover:text-accent transition-colors leading-tight">
+
+            <h3 className="text-md font-bold text-gray-800 group-hover:text-[#00AEEF] transition-colors leading-tight">
               {item.title}
             </h3>
-            
+
             {/* Company Name */}
             {item.company_name && (
-              <p className="text-xs text-gray-600">
-                {item.company_name}
-              </p>
+              <p className="text-xs text-gray-600">{item.company_name}</p>
             )}
-            
+
             <span className="text-xs text-gray-500">
               {formatDate(item.date)}
             </span>

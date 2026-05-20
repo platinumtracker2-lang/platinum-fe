@@ -56,24 +56,24 @@ const HomePlatinumPrice = () => {
   };
 
   const renderRow = (metalData) => (
-    <tr className="text-sm hover:bg-accent/10" key={metalData.metal_name}>
+    <tr className="text-sm hover:bg-[#00AEEF]/10" key={metalData.metal_name}>
       <td className="border-t px-4 py-2 font-sm">{metalData.metal_name}</td>
       <td className="border-t px-4 py-3">${formatValue(metalData.price)}</td>
       <td
         className={`border-t px-4 py-3 ${getChangeClass(
-          parseFloat(metalData.price_change)
+          parseFloat(metalData.price_change),
         )}`}
       >
         {/* Display Change with proper sign */}
         {metalData.price_change > 0
           ? `$+${formatValue(metalData.price_change)}`
           : metalData.price_change < 0
-          ? `$-${formatValue(Math.abs(metalData.price_change))}`
-          : `$0.00`}
+            ? `$-${formatValue(Math.abs(metalData.price_change))}`
+            : `$0.00`}
       </td>
       <td
         className={`border-t px-4 py-3 ${getChangeClass(
-          parseFloat(metalData.price_change_percent)
+          parseFloat(metalData.price_change_percent),
         )}`}
       >
         {formatValue(metalData.price_change_percent)}%

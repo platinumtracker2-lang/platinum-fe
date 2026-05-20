@@ -77,7 +77,7 @@ const PostUtils = ({
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:underline break-all"
+            className="text-[#00AEEF] hover:underline break-all"
           >
             {url}
           </a>
@@ -102,7 +102,7 @@ const PostUtils = ({
 
           if (posts.length === 0) {
             toast.info(
-              `No posts found for ${type === "hashtag" ? "#" : "$"}${tag}`
+              `No posts found for ${type === "hashtag" ? "#" : "$"}${tag}`,
             );
             setPosts([]);
             return;
@@ -113,8 +113,8 @@ const PostUtils = ({
             post_image: post.post_image?.startsWith("http")
               ? post.post_image
               : post.post_image
-              ? GeneralHelpers.getImageUrl(post.post_image)
-              : null,
+                ? GeneralHelpers.getImageUrl(post.post_image)
+                : null,
           }));
 
           setPosts(postsWithImage);
@@ -175,7 +175,7 @@ const PostUtils = ({
               return (
                 <span
                   key={`${lineIndex}-${index}`}
-                  className="bg-orange-50 text-accent font-semibold text-sm cursor-pointer hover:underline hover:bg-accent hover:text-white"
+                  className="bg-orange-50 text-[#00AEEF] font-semibold text-sm cursor-pointer hover:underline hover:bg-[#00AEEF] hover:text-white"
                   onClick={() => tagClick(cashtag.slice(1), "cashtag")}
                 >
                   {cashtag}
@@ -224,7 +224,7 @@ const PostUtils = ({
                 [postId]: !prev?.[postId],
               }));
             }}
-            className="text-accent hover:text-accent/80 text-sm font-medium"
+            className="text-[#00AEEF] hover:text-[#00AEEF]/80 text-sm font-medium"
           >
             {isExpanded ? "Read Less" : "Read More"}
           </button>
@@ -258,7 +258,7 @@ const PostUtils = ({
             Authorization: `Bearer ${userData.access_token}`,
           },
           withCredentials: true,
-        }
+        },
       );
 
       setPostComments((prev) => ({
@@ -377,7 +377,7 @@ const PostUtils = ({
             Authorization: `Bearer ${userData.access_token}`,
           },
           withCredentials: true,
-        }
+        },
       );
 
       console.log("Comment added successfully:", response.data);
@@ -393,8 +393,8 @@ const PostUtils = ({
         prevPosts.map((post) =>
           post.id === postId
             ? { ...post, comment_count: post.comment_count + 1 }
-            : post
-        )
+            : post,
+        ),
       );
 
       setCommentInputs((prev) => ({
@@ -479,7 +479,7 @@ const PostUtils = ({
             Authorization: `Bearer ${userData.access_token}`,
           },
           withCredentials: true,
-        }
+        },
       );
 
       console.log("Comment deleted successfully");
@@ -488,7 +488,7 @@ const PostUtils = ({
       setPostComments((prev) => ({
         ...prev,
         [postId]: (prev[postId] || []).filter(
-          (comment) => comment.id !== commentId
+          (comment) => comment.id !== commentId,
         ),
       }));
 
@@ -497,8 +497,8 @@ const PostUtils = ({
         prevPosts.map((post) =>
           post.id === postId
             ? { ...post, comment_count: post.comment_count - 1 }
-            : post
-        )
+            : post,
+        ),
       );
 
       toast.success("Comment deleted successfully");
@@ -516,7 +516,7 @@ const PostUtils = ({
   const fetchPostsByUsername = async (username) => {
     try {
       const response = await axios.get(
-        `${BASE_URL}/community/api/forum/posts/by-username/${username}/`
+        `${BASE_URL}/community/api/forum/posts/by-username/${username}/`,
       );
 
       const postsData = response.data?.results || [];
@@ -532,8 +532,8 @@ const PostUtils = ({
         post_image: post.post_image?.startsWith("http")
           ? post.post_image
           : post.post_image
-          ? GeneralHelpers.getImageUrl(post.post_image)
-          : null,
+            ? GeneralHelpers.getImageUrl(post.post_image)
+            : null,
       }));
 
       setPosts(postsWithImage);

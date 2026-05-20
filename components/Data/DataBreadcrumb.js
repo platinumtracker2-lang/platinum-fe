@@ -13,13 +13,13 @@
 //         <ul className="flex gap-x-1 md:gap-x-2 text-[12px] md:text-sm text-black/70 lato tracking-[0.3px]">
 //           <button
 //             onClick={handleBack}
-//             className="hover:text-accent font-medium transition-all duration-200 cursor-pointer"
+//             className="hover:text-[#00AEEF] font-medium transition-all duration-200 cursor-pointer"
 //           >
 //             Data
 //           </button>
 //           <span> &gt; </span>
 //           <a
-//             className="hover:text-accent font-medium transition-all duration-200"
+//             className="hover:text-[#00AEEF] font-medium transition-all duration-200"
 //             href={link}
 //           >
 //             {title}
@@ -45,7 +45,7 @@ const DataBreadcrumb = ({ link, title }) => {
       <ul className="flex items-center gap-x-2 md:gap-x-3 text-[12px] md:text-sm text-black/70 lato tracking-[0.3px]">
         <button
           onClick={handleBack}
-          className="hover:text-accent font-medium transition-all duration-200 cursor-pointer flex-shrink-0"
+          className="hover:text-[#00AEEF] font-medium transition-all duration-200 cursor-pointer flex-shrink-0"
         >
           Data
         </button>
@@ -54,7 +54,7 @@ const DataBreadcrumb = ({ link, title }) => {
           &gt;{" "}
         </span>
         <a
-          className="hover:text-accent font-medium transition-all duration-200 inline-flex flex-wrap min-w-0 break-words"
+          className="hover:text-[#00AEEF] font-medium transition-all duration-200 inline-flex flex-wrap min-w-0 break-words"
           href={link}
         >
           {title}

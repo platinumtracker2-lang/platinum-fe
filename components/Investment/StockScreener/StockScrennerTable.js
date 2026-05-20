@@ -213,7 +213,7 @@
 //     return (
 //       <span
 //         className={`ml-1 inline-block ${
-//           isActive ? "text-accent" : "text-gray-400"
+//           isActive ? "text-[#00AEEF]" : "text-gray-400"
 //         }`}
 //       >
 //         {sortDirection === "asc" ? (
@@ -290,7 +290,7 @@
 //               <tr
 //                 key={index}
 //                 onClick={() => !isCheckingStock && handleRowClick(stock.ticker)}
-//                 className={`hover:bg-accent/10 border-b border-date/10 text-[13px] ${
+//                 className={`hover:bg-[#00AEEF]/10 border-b border-date/10 text-[13px] ${
 //                   isCheckingStock ? "cursor-wait" : "cursor-pointer"
 //                 }`}
 //               >
@@ -335,7 +335,7 @@
 //                     onClick={(e) => handleFollowClick(e, stock.ticker)}
 //                     className={`px-3 py-2 text-xs rounded ${
 //                       followedStocks.some((fs) => fs.ticker === stock.ticker)
-//                         ? "bg-accent text-white"
+//                         ? "bg-[#00AEEF] text-white"
 //                         : "bg-gray-200 text-gray-700"
 //                     }`}
 //                     disabled={loadingStates[stock.ticker]}
@@ -408,7 +408,7 @@ const StockScreenerTable = ({
         response.data.map((stock) => ({
           ticker: stock.stock_ticker,
           id: stock.id,
-        }))
+        })),
       );
     } catch (error) {
       console.error("Error fetching followed stocks:", error);
@@ -440,7 +440,7 @@ const StockScreenerTable = ({
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `${PLATINUM_STOCK_DETAIL}?stock_ticker=${stockTicker}`
+        `${PLATINUM_STOCK_DETAIL}?stock_ticker=${stockTicker}`,
       );
       return response.data && Object.keys(response.data).length > 0;
     } catch (error) {
@@ -472,7 +472,7 @@ const StockScreenerTable = ({
     } catch (error) {
       console.error("Error handling row click:", error);
       setErrorMessage(
-        "An error occurred while checking stock details. Please try again later."
+        "An error occurred while checking stock details. Please try again later.",
       );
       setIsModalOpen(true);
     } finally {
@@ -492,12 +492,12 @@ const StockScreenerTable = ({
 
     try {
       const isFollowed = followedStocks.some(
-        (stock) => stock.ticker === ticker
+        (stock) => stock.ticker === ticker,
       );
 
       if (isFollowed) {
         const stockToUnfollow = followedStocks.find(
-          (stock) => stock.ticker === ticker
+          (stock) => stock.ticker === ticker,
         );
         await axios.delete(`${FOLLOWED_STOCKS}${stockToUnfollow.id}/`, {
           headers: {
@@ -506,7 +506,7 @@ const StockScreenerTable = ({
           withCredentials: true,
         });
         setFollowedStocks((prev) =>
-          prev.filter((stock) => stock.ticker !== ticker)
+          prev.filter((stock) => stock.ticker !== ticker),
         );
         toast.success(`Unfollowed ${ticker}`);
       } else {
@@ -519,7 +519,7 @@ const StockScreenerTable = ({
               Authorization: `Bearer ${userData.access_token}`,
             },
             withCredentials: true,
-          }
+          },
         );
         setFollowedStocks((prev) => [
           ...prev,
@@ -535,7 +535,7 @@ const StockScreenerTable = ({
             followedStocks.some((fs) => fs.ticker === ticker)
               ? "unfollow"
               : "follow"
-          } ${ticker}`
+          } ${ticker}`,
         );
       }
     } finally {
@@ -604,7 +604,7 @@ const StockScreenerTable = ({
     return (
       <span
         className={`ml-1 inline-block ${
-          isActive ? "text-accent" : "text-gray-400"
+          isActive ? "text-[#00AEEF]" : "text-gray-400"
         }`}
       >
         {sortDirection === "asc" ? (
@@ -680,7 +680,7 @@ const StockScreenerTable = ({
               <tr
                 key={index}
                 onClick={() => !isCheckingStock && handleRowClick(stock.ticker)}
-                className={`hover:bg-accent/10 border-b border-date/10 text-[13px] ${
+                className={`hover:bg-[#00AEEF]/10 border-b border-date/10 text-[13px] ${
                   isCheckingStock ? "cursor-wait" : "cursor-pointer"
                 }`}
               >
@@ -699,7 +699,7 @@ const StockScreenerTable = ({
                 <td className="px-4 py-[12px]">{stock.last_price || "N/A"}</td>
                 <td
                   className={`px-4 py-[12px] ${getColorClass(
-                    stock.intraday_percentage ?? 0
+                    stock.intraday_percentage ?? 0,
                   )}`}
                 >
                   {stock.intraday_percentage != null
@@ -709,7 +709,7 @@ const StockScreenerTable = ({
                 <td className="px-4 py-[12px]">{formatVolume(stock.volume)}</td>
                 <td
                   className={`px-4 py-[12px] ${getColorClass(
-                    stock.ytd_percentage ?? 0
+                    stock.ytd_percentage ?? 0,
                   )}`}
                 >
                   {stock.ytd_percentage != null
@@ -725,7 +725,7 @@ const StockScreenerTable = ({
                     onClick={(e) => handleFollowClick(e, stock.ticker)}
                     className={`px-3 py-2 text-xs rounded ${
                       followedStocks.some((fs) => fs.ticker === stock.ticker)
-                        ? "bg-accent text-white"
+                        ? "bg-[#00AEEF] text-white"
                         : "bg-gray-200 text-gray-700"
                     }`}
                     disabled={loadingStates[stock.ticker]}
@@ -733,8 +733,8 @@ const StockScreenerTable = ({
                     {loadingStates[stock.ticker]
                       ? "Loading..."
                       : followedStocks.some((fs) => fs.ticker === stock.ticker)
-                      ? "Unfollow"
-                      : "Follow"}
+                        ? "Unfollow"
+                        : "Follow"}
                   </button>
                 </td>
               </tr>

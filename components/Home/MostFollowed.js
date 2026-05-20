@@ -83,7 +83,7 @@
 //               >
 //                 <td className="py-2">
 //                   <div>
-//                     <strong className="text-accent">{stock.ticker}</strong>
+//                     <strong className="text-[#00AEEF]">{stock.ticker}</strong>
 //                   </div>
 //                   <div className="text-gray-500">{stock.name || "N/A"}</div>
 //                 </td>
@@ -107,7 +107,7 @@
 //       <div className="mt-4 text-left">
 //         <a
 //           href="/investments"
-//           className="inline-flex items-center text-sm font-bold text-accent hover:underline"
+//           className="inline-flex items-center text-sm font-bold text-[#00AEEF] hover:underline"
 //         >
 //           View More
 //           <span className="ml-1">&gt;</span>
@@ -175,7 +175,7 @@
 //                 >
 //                   <td className="py-2">
 //                     <div>
-//                       <strong className="text-accent">
+//                       <strong className="text-[#00AEEF]">
 //                         {stock.ticker || "N/A"}
 //                       </strong>
 //                     </div>
@@ -202,7 +202,7 @@
 //       <div className="mt-4 text-left">
 //         <a
 //           href="/investments"
-//           className="inline-flex items-center text-sm font-bold text-accent hover:underline"
+//           className="inline-flex items-center text-sm font-bold text-[#00AEEF] hover:underline"
 //         >
 //           View More
 //           <span className="ml-1">&gt;</span>
@@ -232,7 +232,9 @@ const MostFollowed = () => {
       try {
         const response = await fetch(MOST_FOLLOWED);
         if (!response.ok) {
-          console.warn(`Most followed API returned ${response.status} — showing empty state`);
+          console.warn(
+            `Most followed API returned ${response.status} — showing empty state`,
+          );
           setStockData([]);
           setLoading(false);
           return;
@@ -255,7 +257,7 @@ const MostFollowed = () => {
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `${PLATINUM_STOCK_DETAIL}?stock_ticker=${stockTicker}`
+        `${PLATINUM_STOCK_DETAIL}?stock_ticker=${stockTicker}`,
       );
       return response.data.exists ?? true;
     } catch (error) {
@@ -312,7 +314,7 @@ const MostFollowed = () => {
             {stockData
               .sort(
                 (a, b) =>
-                  (b.intraday_percentage || 0) - (a.intraday_percentage || 0)
+                  (b.intraday_percentage || 0) - (a.intraday_percentage || 0),
               ) // Sort by intraday percentage
               .map((stock) => (
                 <tr
@@ -322,14 +324,16 @@ const MostFollowed = () => {
                 >
                   <td className="py-2">
                     <div>
-                      <strong className="text-accent">
+                      <strong className="text-[#00AEEF]">
                         {stock.ticker || "N/A"}
                       </strong>
                     </div>
                     <div className="text-gray-500">{stock.name || "N/A"}</div>
                   </td>
                   <td className="py-2 text-right">
-                    <div>${parseFloat(stock.current_price || 0).toFixed(2)}</div>
+                    <div>
+                      ${parseFloat(stock.current_price || 0).toFixed(2)}
+                    </div>
                     <div
                       className={`${
                         parseFloat(stock.intraday_percentage || 0) < 0
@@ -349,7 +353,7 @@ const MostFollowed = () => {
       <div className="mt-4 text-left">
         <a
           href="/investments"
-          className="inline-flex items-center text-sm font-bold text-accent hover:underline"
+          className="inline-flex items-center text-sm font-bold text-[#00AEEF] hover:underline"
         >
           View More
           <span className="ml-1">&gt;</span>

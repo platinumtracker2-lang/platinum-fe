@@ -19,7 +19,7 @@ export default function Custom404() {
         transition={{ duration: 0.6 }}
         className="text-center"
       >
-        <BsGraphDown className="text-accent text-6xl mb-4" />
+        <BsGraphDown className="text-[#00AEEF] text-6xl mb-4" />
         <h1 className="text-6xl font-extrabold mb-4">404</h1>
         <p className="text-xl text-gray-300 mb-6">
           Lost in the vault? This page doesn’t exist.
@@ -36,9 +36,9 @@ export default function Custom404() {
           Platinum prices don’t wait—head back to the dashboard!
         </p>
         <div className="flex items-center space-x-2 hover:bg-gray-100 hover:text-secondary transition-all duration-500 ease-in-out p-2 rounded">
-          <AiOutlineStock className="text-accent text-4xl" />
+          <AiOutlineStock className="text-[#00AEEF] text-4xl" />
           <Link href="/" legacyBehavior>
-            <a className="text-lg font-semibold text-accent transition-all">
+            <a className="text-lg font-semibold text-[#00AEEF] transition-all">
               Return to Home
             </a>
           </Link>
@@ -53,7 +53,7 @@ export default function Custom404() {
       >
         <p>
           If you're stuck, contact us at{" "}
-          <span className="text-accent">info@platinumtracker.com</span>.
+          <span className="text-[#00AEEF]">info@platinumtracker.com</span>.
         </p>
       </motion.div>
     </div>

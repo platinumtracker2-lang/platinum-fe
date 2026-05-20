@@ -105,7 +105,7 @@
 //                   ? eventColors[
 //                       calendarData.indexOf(events[0]) % eventColors.length
 //                     ]
-//                   : "bg-accent/10";
+//                   : "bg-[#00AEEF]/10";
 //                 const textColor = hasEvents ? "text-black" : "text-black/70";
 
 //                 return (
@@ -143,7 +143,7 @@
 //         {calendarData.map((event, index) => (
 //           <div
 //             key={index}
-//             className="bg-accent/10 text-black1/90 p-6 rounded-lg border border-date/20 flex flex-col md:flex-row overflow-hidden"
+//             className="bg-[#00AEEF]/10 text-black1/90 p-6 rounded-lg border border-date/20 flex flex-col md:flex-row overflow-hidden"
 //           >
 //             <div className="flex flex-col items-center justify-center pr-6 border-b md:border-r border-black1/5 md:border-b-0 mb-4 md:mb-0">
 //               <span className="text-lg font-bold pb-3 md:pb-0">
@@ -191,7 +191,7 @@
 //                   <a
 //                     href={event.url}
 //                     target="_blank"
-//                     className="inline-flex items-center py-1 text-black/60 hover:text-accent text-[11px] md:text-[14px]"
+//                     className="inline-flex items-center py-1 text-black/60 hover:text-[#00AEEF] text-[11px] md:text-[14px]"
 //                   >
 //                     View More
 //                     <i className="ri-arrow-right-s-line ml-1 text-lg"></i>
@@ -285,7 +285,7 @@ const YearCalendar = ({ calendarData = [], selectedYear, setSelectedYear }) => {
 
   const getEventsForDate = (date) => {
     return safeCalendarData.filter((event) =>
-      isDateInRange(event?.start_date, event?.end_date, date)
+      isDateInRange(event?.start_date, event?.end_date, date),
     );
   };
 
@@ -348,7 +348,7 @@ const YearCalendar = ({ calendarData = [], selectedYear, setSelectedYear }) => {
                   ? eventColors[
                       safeCalendarData.indexOf(events[0]) % eventColors.length
                     ]
-                  : "bg-accent/10";
+                  : "bg-[#00AEEF]/10";
                 const textColor = hasEvents ? "text-black" : "text-black/70";
 
                 return (
@@ -388,7 +388,7 @@ const YearCalendar = ({ calendarData = [], selectedYear, setSelectedYear }) => {
         {safeCalendarData.map((event, index) => (
           <div
             key={index}
-            className="bg-accent/10 text-black1/90 p-6 rounded-lg border border-date/20 flex flex-col md:flex-row overflow-hidden"
+            className="bg-[#00AEEF]/10 text-black1/90 p-6 rounded-lg border border-date/20 flex flex-col md:flex-row overflow-hidden"
           >
             <div className="flex flex-col items-center justify-center pr-6 border-b md:border-r border-black1/5 md:border-b-0 mb-4 md:mb-0">
               <span className="text-base md:text-lg font-bold pb-3 md:pb-0">
@@ -397,7 +397,7 @@ const YearCalendar = ({ calendarData = [], selectedYear, setSelectedYear }) => {
             </div>
 
             <div className="flex-grow pl-0 md:pl-6">
-              <h3 className="text-lg md:text-xl font-bold text-accent mb-3 frank">
+              <h3 className="text-lg md:text-xl font-bold text-[#00AEEF] mb-3 frank">
                 {event?.title || "Untitled Event"}
               </h3>
               <div className="space-y-2">
@@ -457,7 +457,7 @@ const YearCalendar = ({ calendarData = [], selectedYear, setSelectedYear }) => {
                     <a
                       href={getValidHref(event?.url)}
                       target="_blank"
-                      className="inline-flex items-center py-1 text-black/60 hover:text-accent text-[11px] md:text-[14px]"
+                      className="inline-flex items-center py-1 text-black/60 hover:text-[#00AEEF] text-[11px] md:text-[14px]"
                     >
                       View More
                       <i className="ri-arrow-right-s-line ml-1 text-lg"></i>

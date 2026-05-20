@@ -36,7 +36,7 @@ const InvestmentsCanadaInsiderTransaction = () => {
         setInsiderTransactionsData(data);
         sessionStorage.setItem(
           "canadaInsiderTransactions",
-          JSON.stringify(data)
+          JSON.stringify(data),
         );
         sessionStorage.setItem("canadaFetchTimestamp", Date.now().toString());
 
@@ -64,7 +64,7 @@ const InvestmentsCanadaInsiderTransaction = () => {
       const storedData = sessionStorage.getItem("canadaInsiderTransactions");
       const fetchTimestamp = parseInt(
         sessionStorage.getItem("canadaFetchTimestamp"),
-        10
+        10,
       );
       const now = Date.now();
 
@@ -169,7 +169,7 @@ const InvestmentsCanadaInsiderTransaction = () => {
   const totalPages = Math.ceil(filteredTransactions.length / itemsPerPage);
   const paginatedData = filteredTransactions.slice(
     (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
+    currentPage * itemsPerPage,
   );
 
   const handlePageChange = (pageNumber) => {
@@ -182,7 +182,7 @@ const InvestmentsCanadaInsiderTransaction = () => {
   if (error) return <p>Error fetching data: {error.message}</p>;
 
   return (
-    <div className="bg-accent/10 p-2 py-4 md:p-8 rounded-md mb-7">
+    <div className="bg-[#00AEEF]/10 p-2 py-4 md:p-8 rounded-md mb-7">
       <h2 className="flex items-center text-[1rem] md:text-[1.4rem] frank mb-6 font-semibold text-black/90 capitalize">
         Canada Insider Transactions
       </h2>

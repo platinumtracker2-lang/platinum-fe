@@ -12,8 +12,8 @@ const ETFNavigationNav = ({ onRegionSelect, selectedRegion }) => {
             onClick={() => onRegionSelect(region.name)}
             className={`py-1 sm:px-4 px-3 rounded-full transition-colors text-sm sm:text-base ${
               isActive
-                ? "bg-accent text-white"
-                : " text-black hover:bg-accent/20"
+                ? "bg-[#00AEEF] text-white"
+                : " text-black hover:bg-[#00AEEF]/20"
             }`}
           >
             {region.name}

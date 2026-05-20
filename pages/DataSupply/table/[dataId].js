@@ -34,7 +34,7 @@
 //                 {table.data[0].map((header, index) => (
 //                   <th
 //                     key={index}
-//                     className="text-left p-3 border-b-2 font-semibold text-accent"
+//                     className="text-left p-3 border-b-2 font-semibold text-[#00AEEF]"
 //                   >
 //                     {header}
 //                   </th>
@@ -53,7 +53,7 @@
 //                       "Total secondary supply",
 //                       "Combined primary and secondary supply",
 //                     ].includes(row[0])
-//                       ? "bg-gray-100 text-accent font-semibold"
+//                       ? "bg-gray-100 text-[#00AEEF] font-semibold"
 //                       : ""
 //                   }`}
 //                 >
@@ -199,7 +199,7 @@
 //                   {table.data[0].map((header, index) => (
 //                     <th
 //                       key={index}
-//                       className={`p-2 md:p-3 border-b-2 font-semibold text-accent text-sm md:text-base whitespace-nowrap ${
+//                       className={`p-2 md:p-3 border-b-2 font-semibold text-[#00AEEF] text-sm md:text-base whitespace-nowrap ${
 //                         index === 0 ? "text-left" : "text-right"
 //                       }`}
 //                     >
@@ -220,7 +220,7 @@
 //                         "Total secondary supply",
 //                         "Combined primary and secondary supply",
 //                       ].includes(row[0])
-//                         ? "bg-gray-50 text-accent font-semibold"
+//                         ? "bg-gray-50 text-[#00AEEF] font-semibold"
 //                         : ""
 //                     }`}
 //                   >
@@ -251,7 +251,7 @@
 
 //           {/* Year-over-Year Changes */}
 //           <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
-//             <h3 className="text-base text-accent md:text-lg font-medium mb-3 md:mb-4">
+//             <h3 className="text-base text-[#00AEEF] md:text-lg font-medium mb-3 md:mb-4">
 //               Year-over-Year Changes
 //             </h3>
 //             <div className="space-y-2 text-sm md:text-base">
@@ -280,7 +280,7 @@
 
 //           {/* Category Analysis */}
 //           <div className="bg-white rounded-lg shadow-sm p-4 md:p-6">
-//             <h3 className="text-base text-accent md:text-lg font-medium mb-3 md:mb-4">
+//             <h3 className="text-base text-[#00AEEF] md:text-lg font-medium mb-3 md:mb-4">
 //               Category Analysis
 //             </h3>
 //             <div className="space-y-2 text-sm md:text-base">
@@ -393,7 +393,7 @@ const TableSubpage = () => {
                   {table.data[0].map((header, index) => (
                     <th
                       key={index}
-                      className={`p-1 md:p-3 border-b-2 border-r border-gray-200 font-semibold text-accent text-xs md:text-base ${
+                      className={`p-1 md:p-3 border-b-2 border-r border-gray-200 font-semibold text-[#00AEEF] text-xs md:text-base ${
                         index === 0 ? "text-left w-1/3" : "text-right w-1/6"
                       } ${
                         index === table.data[0].length - 1 ? "border-r-0" : ""
@@ -416,7 +416,7 @@ const TableSubpage = () => {
                         "Total secondary supply",
                         "Combined primary and secondary supply",
                       ].includes(row[0])
-                        ? "bg-gray-50 text-accent font-semibold"
+                        ? "bg-gray-50 text-[#00AEEF] font-semibold"
                         : ""
                     }`}
                   >
@@ -447,7 +447,7 @@ const TableSubpage = () => {
 
           {/* Year-over-Year Changes */}
           <div className="bg-white rounded-lg p-3 md:p-6">
-            <h3 className="text-sm text-accent md:text-lg font-medium mb-2 md:mb-4">
+            <h3 className="text-sm text-[#00AEEF] md:text-lg font-medium mb-2 md:mb-4">
               Year-over-Year Changes
             </h3>
             <div className="space-y-2 text-xs md:text-base">
@@ -476,7 +476,7 @@ const TableSubpage = () => {
 
           {/* Category Analysis */}
           <div className="bg-white rounded-lg p-3 md:p-6">
-            <h3 className="text-sm text-accent md:text-lg font-medium mb-2 md:mb-4">
+            <h3 className="text-sm text-[#00AEEF] md:text-lg font-medium mb-2 md:mb-4">
               Category Analysis
             </h3>
             <div className="space-y-2 text-xs md:text-base">

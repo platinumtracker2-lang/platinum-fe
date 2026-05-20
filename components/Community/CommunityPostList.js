@@ -26,12 +26,19 @@ const PostList = ({
   const [commentInputs, setCommentInputs] = useState({});
 
   // Use PostUtils for helper functions
-  const postUtilsData = PostUtils({
-    auth,
-    posts,
-    setPosts: (newPosts) => updateState?.({ posts: newPosts }),
-  }) || {};
-  const { formatPostContent, formatTimeAgo, fetchComments, addComment, deleteComment } = postUtilsData;
+  const postUtilsData =
+    PostUtils({
+      auth,
+      posts,
+      setPosts: (newPosts) => updateState?.({ posts: newPosts }),
+    }) || {};
+  const {
+    formatPostContent,
+    formatTimeAgo,
+    fetchComments,
+    addComment,
+    deleteComment,
+  } = postUtilsData;
 
   // Single observer for infinite scroll attached to the last post
   const observer = useRef();
@@ -45,11 +52,11 @@ const PostList = ({
             handleLoadMore();
           }
         },
-        { threshold: 0.1 }
+        { threshold: 0.1 },
       );
       if (node) observer.current.observe(node);
     },
-    [loading, propHasMore, onLoadMore]
+    [loading, propHasMore, onLoadMore],
   );
 
   const handleLoadMore = useCallback(async () => {
@@ -181,7 +188,7 @@ const PostList = ({
                     setCommentInputs((prev) => ({ ...prev, [post.id]: "" }));
                     await fetchComments(post.id);
                   }}
-                  className="bg-accent text-white px-2 rounded h-7"
+                  className="bg-[#00AEEF] text-white px-2 rounded h-7"
                 >
                   <BiSolidSend className="text-sm" />
                 </button>
@@ -193,7 +200,8 @@ const PostList = ({
                 >
                   <div>
                     <p className="text-xs text-black/50">
-                      {comment.created_by_name} • {formatTimeAgo(comment.created_at)}
+                      {comment.created_by_name} •{" "}
+                      {formatTimeAgo(comment.created_at)}
                     </p>
                     <p className="text-sm">{comment.content}</p>
                   </div>

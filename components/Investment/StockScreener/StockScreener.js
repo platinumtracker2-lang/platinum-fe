@@ -88,8 +88,8 @@ const StockScreener = ({ stockData = [] }) => {
 
       setLoading(false);
     } else {
-      console.log('No stock data received from server');
-      setError(new Error('No stock data available'));
+      console.log("No stock data received from server");
+      setError(new Error("No stock data available"));
       setLoading(false);
     }
   }, [stockData]);
@@ -146,7 +146,7 @@ const StockScreener = ({ stockData = [] }) => {
 
   const displayedData = filteredData.slice(
     (currentPage - 1) * PAGE_SIZE,
-    currentPage * PAGE_SIZE
+    currentPage * PAGE_SIZE,
   );
 
   const totalPages = Math.ceil(filteredData.length / PAGE_SIZE);
@@ -164,7 +164,7 @@ const StockScreener = ({ stockData = [] }) => {
   return (
     <div
       id="investment"
-      className="w-full bg-accent/10 border border-date/20 p-2 py-4 md:p-8 rounded-lg mb-24"
+      className="w-full bg-[#00AEEF]/10 border border-date/20 p-2 py-4 md:p-8 rounded-lg mb-24"
     >
       {stocksScreenerTable.length === 0 ? (
         <p className="text-black1/90">No investment stocks available.</p>
@@ -172,7 +172,8 @@ const StockScreener = ({ stockData = [] }) => {
         <>
           <div className="mb-4">
             <p className="text-sm text-gray-600">
-              Showing {filteredData.length} of {stocksScreenerTable.length} stocks from database
+              Showing {filteredData.length} of {stocksScreenerTable.length}{" "}
+              stocks from database
             </p>
           </div>
 

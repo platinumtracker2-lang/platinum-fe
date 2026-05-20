@@ -39,7 +39,7 @@ const ResetPassword = () => {
       setSubmitting(true);
       toast.error(
         error?.response?.data?.error ??
-          "Failed to send reset link. Please try again."
+          "Failed to send reset link. Please try again.",
       );
     }
   };
@@ -59,7 +59,7 @@ const ResetPassword = () => {
             <div className="max-w-md mx-auto w-full">
               {submitted ? (
                 <div className="text-center">
-                  <IoMailOutline className="w-16 h-16 mx-auto text-accent mb-4" />
+                  <IoMailOutline className="w-16 h-16 mx-auto text-[#00AEEF] mb-4" />
                   <h2 className="text-2xl font-semibold mb-4">
                     Check Your Inbox
                   </h2>
@@ -70,7 +70,7 @@ const ResetPassword = () => {
                   </p>
                   <button
                     onClick={() => router.push("./login")}
-                    className="flex items-center justify-center space-x-2 text-accent hover:text-accent-dark mx-auto"
+                    className="flex items-center justify-center space-x-2 text-[#00AEEF] hover:text-[#00AEEF]-dark mx-auto"
                   >
                     <IoArrowBack className="w-5 h-5" />
                     <span>Return to Login</span>
@@ -109,7 +109,7 @@ const ResetPassword = () => {
                               onChange={handleChange}
                               onBlur={handleBlur}
                               value={values.email}
-                              className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 pr-10 placeholder:text-black/40 placeholder:text-sm"
+                              className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 pr-10 placeholder:text-black/40 placeholder:text-sm"
                             />
                             <IoMailOutline className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                           </div>
@@ -122,7 +122,7 @@ const ResetPassword = () => {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
+                          className="w-full bg-[#00AEEF] text-white py-2 rounded-sm hover:bg-[#00AEEF]/90 transition-all duration-300 ease-in-out"
                         >
                           Send Reset Link
                         </button>

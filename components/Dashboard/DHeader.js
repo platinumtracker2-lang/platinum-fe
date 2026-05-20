@@ -44,7 +44,7 @@
 //               <input
 //                 type="text"
 //                 placeholder="Search..."
-//                 className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-accent"
+//                 className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#00AEEF]"
 //               />
 //             </div>
 //           </div>
@@ -52,7 +52,7 @@
 //         <div className="ml-4">
 //           <div
 //             onClick={handleAvatarClick}
-//             className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-accent/80 to-accent rounded-full flex items-center justify-center text-white font-medium cursor-pointer hover:opacity-90 transition-opacity"
+//             className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-[#00AEEF]/80 to-[#00AEEF] rounded-full flex items-center justify-center text-white font-medium cursor-pointer hover:opacity-90 transition-opacity"
 //           >
 //             {initials}
 //           </div>
@@ -111,7 +111,7 @@
 //         <div className="ml-4">
 //           <div
 //             onClick={handleAvatarClick}
-//             className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-accent/80 to-accent rounded-full flex items-center justify-center text-white font-medium cursor-pointer hover:opacity-90 transition-opacity"
+//             className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-[#00AEEF]/80 to-[#00AEEF] rounded-full flex items-center justify-center text-white font-medium cursor-pointer hover:opacity-90 transition-opacity"
 //           >
 //             {initials}
 //           </div>
@@ -176,7 +176,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <div className="ml-4">
           <div
             onClick={handleAvatarClick}
-            className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-accent/80 to-accent rounded-full flex items-center justify-center text-white font-medium cursor-pointer hover:opacity-90 transition-opacity"
+            className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-[#00AEEF]/80 to-[#00AEEF] rounded-full flex items-center justify-center text-white font-medium cursor-pointer hover:opacity-90 transition-opacity"
           >
             {initials}
           </div>

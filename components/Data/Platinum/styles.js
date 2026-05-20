@@ -3,10 +3,10 @@
 export const vars = {
   // Platinum grey tones
   pt: "#9ca3af",
-  ptL: "#d1d5db", 
+  ptL: "#d1d5db",
   ptD: "#6b7280",
   ptBg: "#f9fafb",
-  
+
   // Base colors
   ink: "#1a1a2e",
   ink2: "#2d2d44",
@@ -14,8 +14,8 @@ export const vars = {
   muted: "#777799",
   white: "#ffffff",
   page: "#f3f4f6",
-  
-  // Accent colors
+
+  // [#00AEEF] colors
   green: "#10b981",
   greenBg: "#ecfdf5",
   red: "#ef4444",
@@ -24,10 +24,10 @@ export const vars = {
   amberBg: "#fffbeb",
   blue: "#3b82f6",
   blueBg: "#eff6ff",
-  
+
   // Border
   bdr: "rgba(26, 26, 46, 0.09)",
-  
+
   // Layout
   max: "1600px",
   r: "8px",

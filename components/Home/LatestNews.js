@@ -495,36 +495,36 @@ const LatestNews = () => {
                   className="w-full h-64 object-cover mb-2 rounded-md"
                 />
               )}
-              
+
               {/* Source or Ticker Badge */}
               {(newsData[0].source || newsData[0].ticker) && (
                 <div className="mb-2">
-                  <span className="bg-accent text-[11px] rounded-sm text-white px-2 py-1">
+                  <span className="bg-[#00AEEF] text-[11px] rounded-sm text-white px-2 py-1">
                     {newsData[0].source || newsData[0].ticker}
                   </span>
                 </div>
               )}
-              
+
               <h2 className="text-lg font-semibold text-primary mb-1 hover:underline">
                 {newsData[0].title}
               </h2>
-              
+
               {/* Summary or Content */}
               {(newsData[0].summary || newsData[0].content) && (
                 <p className="text-[14px] text-gray-600 mb-2 line-clamp-2">
-                  {(newsData[0].summary || newsData[0].content).length > 150 
+                  {(newsData[0].summary || newsData[0].content).length > 150
                     ? `${(newsData[0].summary || newsData[0].content).substring(0, 150)}...`
-                    : (newsData[0].summary || newsData[0].content)}
+                    : newsData[0].summary || newsData[0].content}
                 </p>
               )}
-              
+
               {/* Company Name (for stock news) */}
               {newsData[0].company_name && (
                 <p className="text-[13px] text-gray-600 mb-1">
                   {newsData[0].company_name}
                 </p>
               )}
-              
+
               <p className="text-gray-500 text-sm">
                 {formatDate(newsData[0].date)}
               </p>
@@ -553,23 +553,23 @@ const LatestNews = () => {
                 {/* Source or Ticker Badge */}
                 {(news.source || news.ticker) && (
                   <div className="mb-1">
-                    <span className="bg-accent text-[10px] rounded-sm text-white px-2 py-1">
+                    <span className="bg-[#00AEEF] text-[10px] rounded-sm text-white px-2 py-1">
                       {news.source || news.ticker}
                     </span>
                   </div>
                 )}
-                
+
                 <h3 className="text-sm font-medium text-primary line-clamp-2 text-left hover:underline">
                   {news.title}
                 </h3>
-                
+
                 {/* Company Name (for stock news) */}
                 {news.company_name && (
                   <p className="text-[11px] text-gray-600 mt-1">
                     {news.company_name}
                   </p>
                 )}
-                
+
                 <p className="text-gray-500 text-xs mt-2">
                   {formatDate(news.date)}
                 </p>

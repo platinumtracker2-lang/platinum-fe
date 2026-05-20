@@ -12,7 +12,7 @@ const PopularTools = () => {
 
         <a
           href="/investments"
-          className="text-accent hover:text-accent/70 text-sm font-bold  "
+          className="text-[#00AEEF] hover:text-[#00AEEF]/70 text-sm font-bold  "
         >
           view all&nbsp;&gt;
         </a>
@@ -22,13 +22,13 @@ const PopularTools = () => {
       <div className="flex flex-col gap-y-3">
         {/* c 1  */}
         <a href="/investments?tab=stock-screener">
-          <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
-            <h1 className="text-[1.2rem] font-medium  text-black/80 mb-2 group-hover:text-accent">
+          <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-[#00AEEF]/15 hover:scale-[1.02] transition-all duration-200">
+            <h1 className="text-[1.2rem] font-medium  text-black/80 mb-2 group-hover:text-[#00AEEF]">
               Lithium Stock Screener
             </h1>
             <p className="text-[15px]  group-hover:text-black/70">
-              Identify and filter Lithium-focused companies based on key factors,
-              financial metrics, and market performance.
+              Identify and filter Lithium-focused companies based on key
+              factors, financial metrics, and market performance.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">
               <BsArrowUpRight />
@@ -38,8 +38,8 @@ const PopularTools = () => {
 
         {/* c 2  */}
         <a href="/investments?tab=insider-transactions">
-          <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
-            <h1 className="text-[1.2rem] font-medium mb-2 text-black/80 group-hover:text-accent">
+          <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-[#00AEEF]/15 hover:scale-[1.02] transition-all duration-200">
+            <h1 className="text-[1.2rem] font-medium mb-2 text-black/80 group-hover:text-[#00AEEF]">
               Lithium Insider Trading Screener
             </h1>
             <p className="text-[15px]  group-hover:text-black/70">
@@ -54,8 +54,8 @@ const PopularTools = () => {
 
         {/* c 3  */}
         <a href="/investments?tab=etf-trust-holdings">
-          <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
-            <h1 className="text-[1.2rem] font-medium text-black/80 mb-2 group-hover:text-accent">
+          <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-[#00AEEF]/15 hover:scale-[1.02] transition-all duration-200">
+            <h1 className="text-[1.2rem] font-medium text-black/80 mb-2 group-hover:text-[#00AEEF]">
               ETF/Trust Holdings
             </h1>
             <p className="text-[15px] group-hover:text-black/70">

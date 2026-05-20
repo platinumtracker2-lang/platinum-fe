@@ -34,7 +34,7 @@
 //           <button
 //             key={category.hashtag}
 //             onClick={() => onCategoryClick(category.hashtag.slice(1))}
-//             className="w-full flex items-center px-2 py-1 text-left  text-accent rounded-md bg-accent/10 hover:bg-accent/20 transition-colors duration-200 text-sm"
+//             className="w-full flex items-center px-2 py-1 text-left  text-[#00AEEF] rounded-md bg-[#00AEEF]/10 hover:bg-[#00AEEF]/20 transition-colors duration-200 text-sm"
 //           >
 //             <span className="mr-2 text-lg">{category.icon}</span>
 //             {category.name}
@@ -91,7 +91,7 @@ const PlatinumCategoriesSidebar = ({
     categories.forEach((cat) => {
       updatedPost = updatedPost.replace(
         new RegExp(cat.hashtag + "\\s*", "g"),
-        ""
+        "",
       );
     });
 
@@ -116,12 +116,12 @@ const PlatinumCategoriesSidebar = ({
           <button
             key={category.hashtag}
             onClick={() => handleCategoryClick(category)}
-            className={`w-full flex items-center px-2 py-1 text-left text-accent  rounded-md 
+            className={`w-full flex items-center px-2 py-1 text-left text-[#00AEEF]  rounded-md 
                        font-medium transition-colors duration-200
                        ${
                          selectedCategory === category.hashtag
-                           ? "bg-accent/10"
-                           : "bg-accent/10 hover:bg-accent/20"
+                           ? "bg-[#00AEEF]/10"
+                           : "bg-[#00AEEF]/10 hover:bg-[#00AEEF]/20"
                        }`}
           >
             <span className="mr-2 text-lg">{category.icon}</span>

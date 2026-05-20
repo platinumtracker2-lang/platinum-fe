@@ -18,10 +18,10 @@ export default {
         green2: "#039a77",
         lightgray: "#292929",
         date: "#282828b9",
-        // Keep accent mapped to the primary platinum green for existing accent- usages
-        accent: "#01b98e",
-        "accent-light": "#039a77",
-        "accent-bright": "#57fec7",
+        // Keep [#00AEEF] mapped to the primary platinum green for existing [#00AEEF]- usages
+        [#00AEEF]: "#00AEEF",
+        "[#00AEEF]-light": "#00AEEF",
+        "[#00AEEF]-bright": "#00AEEF",
       },
       animation: {
         "spin-slow": "spin 8s linear infinite",

@@ -79,7 +79,7 @@ const NewPassword = () => {
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 required
-                className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 pr-10 placeholder:text-black/40 placeholder:text-sm bg-transparent"
+                className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 pr-10 placeholder:text-black/40 placeholder:text-sm bg-transparent"
                 placeholder="Enter new password"
               />
             </div>
@@ -91,7 +91,7 @@ const NewPassword = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
-                className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 pr-10 placeholder:text-black/40 placeholder:text-sm bg-transparent"
+                className="w-full border-b border-gray-300 focus:outline-none focus:border-[#00AEEF] py-2 pr-10 placeholder:text-black/40 placeholder:text-sm bg-transparent"
                 placeholder="Confirm new password"
               />
             </div>
@@ -102,7 +102,7 @@ const NewPassword = () => {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={isLoading}
-              className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
+              className="w-full bg-[#00AEEF] text-white py-2 rounded-sm hover:bg-[#00AEEF]/90 transition-all duration-300 ease-in-out"
             >
               {isLoading ? (
                 <span className="flex items-center justify-center">

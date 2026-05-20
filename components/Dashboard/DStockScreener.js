@@ -15,7 +15,7 @@
 //             <input
 //               type="text"
 //               placeholder="Search stocks..."
-//               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-accent text-sm"
+//               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#00AEEF] text-sm"
 //             />
 //           </div>
 //           <div className="mt-8">
@@ -52,7 +52,7 @@ const ScreenerContent = () => {
             <input
               type="text"
               placeholder="Search stocks..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-accent text-sm"
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#00AEEF] text-sm"
               value={searchQuery}
               onChange={handleSearch}
             />

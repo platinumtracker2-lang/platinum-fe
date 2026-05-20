@@ -6,47 +6,47 @@ const DirectHomePlatinumPrice = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
- useEffect(() => {
-   const fetchPricesFromDatabase = async () => {
-     try {
-       setLoading(true);
+  useEffect(() => {
+    const fetchPricesFromDatabase = async () => {
+      try {
+        setLoading(true);
 
-       const response = await axios("/api/platinum-prices");
+        const response = await axios("/api/platinum-prices");
 
-       if (!response.data) {
-         console.warn(
-           `Platinum prices API returned ${response.status} — showing empty state`,
-         );
-         setPlatinumPrices([]); 
-         setLoading(false);
-         return;
-       }
+        if (!response.data) {
+          console.warn(
+            `Platinum prices API returned ${response.status} — showing empty state`,
+          );
+          setPlatinumPrices([]);
+          setLoading(false);
+          return;
+        }
 
-       const data = response.data;
-       const metalPrices = data.slice(0, 4).map((item) => ({
-         metal_name: item.metal_name,
-         price: parseFloat(item.price),
-         price_change: parseFloat(item.price_change),
-         price_change_percent: parseFloat(item.price_change_percent),
-       }));
+        const data = response.data;
+        const metalPrices = data.slice(0, 4).map((item) => ({
+          metal_name: item.metal_name,
+          price: parseFloat(item.price),
+          price_change: parseFloat(item.price_change),
+          price_change_percent: parseFloat(item.price_change_percent),
+        }));
 
-       setPlatinumPrices(metalPrices);
-     } catch (err) {
-       console.error("Error fetching prices from database:", err);
-       setError(err.message);
+        setPlatinumPrices(metalPrices);
+      } catch (err) {
+        console.error("Error fetching prices from database:", err);
+        setError(err.message);
 
-       setPlatinumPrices([]);
-     } finally {
-       setLoading(false);
-     }
-   };
+        setPlatinumPrices([]);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-   fetchPricesFromDatabase();
+    fetchPricesFromDatabase();
 
-   // Refresh every 2 minutes
-   const interval = setInterval(fetchPricesFromDatabase, 2 * 60 * 1000);
-   return () => clearInterval(interval);
- }, []);
+    // Refresh every 2 minutes
+    const interval = setInterval(fetchPricesFromDatabase, 2 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const formatValue = (value) => {
     if (value === null || value === undefined || isNaN(value)) {
@@ -61,37 +61,37 @@ const DirectHomePlatinumPrice = () => {
     return "text-black";
   };
 
-    const renderRow = (metalData) => (
-      <tr className="text-md hover:bg-accent/10" key={metalData.metal_name}>
-        <td className="border-t px-4 py-5 font-sm">
-          {metalData.metal_name}
-          {metalData.source && (
-            <span className="text-sm text-gray-500 ml-2">
-              ({metalData.source})
-            </span>
-          )}
-        </td>
-        <td className="border-t px-4 py-5">${formatValue(metalData.price)}</td>
-        <td
-          className={`border-t px-4 py-5 ${getChangeClass(
-            parseFloat(metalData.price_change),
-          )}`}
-        >
-          {metalData.price_change > 0
-            ? `$+${formatValue(metalData.price_change)}`
-            : metalData.price_change < 0
-              ? `${formatValue(metalData.price_change)}`
-              : `$0.0000`}
-        </td>
-        <td
-          className={`border-t px-4 py-5 ${getChangeClass(
-            parseFloat(metalData.price_change_percent),
-          )}`}
-        >
-          {formatValue(metalData.price_change_percent)}%
-        </td>
-      </tr>
-    );
+  const renderRow = (metalData) => (
+    <tr className="text-md hover:bg-[#00AEEF]/10" key={metalData.metal_name}>
+      <td className="border-t px-4 py-5 font-sm">
+        {metalData.metal_name}
+        {metalData.source && (
+          <span className="text-sm text-gray-500 ml-2">
+            ({metalData.source})
+          </span>
+        )}
+      </td>
+      <td className="border-t px-4 py-5">${formatValue(metalData.price)}</td>
+      <td
+        className={`border-t px-4 py-5 ${getChangeClass(
+          parseFloat(metalData.price_change),
+        )}`}
+      >
+        {metalData.price_change > 0
+          ? `$+${formatValue(metalData.price_change)}`
+          : metalData.price_change < 0
+            ? `${formatValue(metalData.price_change)}`
+            : `$0.0000`}
+      </td>
+      <td
+        className={`border-t px-4 py-5 ${getChangeClass(
+          parseFloat(metalData.price_change_percent),
+        )}`}
+      >
+        {formatValue(metalData.price_change_percent)}%
+      </td>
+    </tr>
+  );
   if (loading) {
     return (
       <div className="overflow-x-auto custom-scrollbar-hidden">
@@ -130,7 +130,6 @@ const DirectHomePlatinumPrice = () => {
       </div>
     );
   }
-
 
   if (error && platinumPrices.length === 0) {
     return (

@@ -9,41 +9,42 @@ const DirectPlatinumPrice = () => {
     const fetchPlatinumPrice = async () => {
       try {
         setLoading(true);
-        
+
         // Fetch platinum price from CME Group API
-        const response = await fetch('/api/cme-platinum-spot');
-        
+        const response = await fetch("/api/cme-platinum-spot");
+
         if (!response.ok) {
-          console.warn(`Platinum price API returned ${response.status} — showing empty state`);
+          console.warn(
+            `Platinum price API returned ${response.status} — showing empty state`,
+          );
           setPlatinumData(null);
           setLoading(false);
           return;
         }
-        
+
         const data = await response.json();
-        
+
         if (!data.success || !data.data) {
           setPlatinumData(null);
           setLoading(false);
           return;
         }
-        
+
         // Use CME platinum data directly
         const cmeData = data.data;
-        
+
         setPlatinumData({
           price: parseFloat(cmeData.last_price),
           price_change: parseFloat(cmeData.price_change),
           price_change_percent: parseFloat(cmeData.price_change_percent),
           source: "CME Group",
           symbol: cmeData.globex_code,
-          last_updated: cmeData.scraped_at
+          last_updated: cmeData.scraped_at,
         });
-        
       } catch (error) {
-        console.error('Error fetching CME platinum spot price:', error);
+        console.error("Error fetching CME platinum spot price:", error);
         setError(error.message);
-        
+
         // No fallback data - set to null to show error state
         setPlatinumData(null);
       } finally {
@@ -52,7 +53,7 @@ const DirectPlatinumPrice = () => {
     };
 
     fetchPlatinumPrice();
-    
+
     // Refresh every 2 minutes
     const interval = setInterval(fetchPlatinumPrice, 2 * 60 * 1000);
     return () => clearInterval(interval);
@@ -80,12 +81,10 @@ const DirectPlatinumPrice = () => {
         </h2>
         <div className="text-center py-8 text-red-500">
           <p>CME platinum spot price data unavailable</p>
-          <p className="text-sm text-gray-600 mt-2">Real-time data only - no fallback data</p>
-          {error && (
-            <p className="text-xs text-red-400 mt-2">
-              Error: {error}
-            </p>
-          )}
+          <p className="text-sm text-gray-600 mt-2">
+            Real-time data only - no fallback data
+          </p>
+          {error && <p className="text-xs text-red-400 mt-2">Error: {error}</p>}
         </div>
       </div>
     );
@@ -94,15 +93,23 @@ const DirectPlatinumPrice = () => {
   const { price, price_change, price_change_percent, source } = platinumData;
 
   // Format large numbers (CNY) with commas
-  const formattedPrice = price > 1000 
-    ? price.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })
-    : price.toFixed(2);
-  
+  const formattedPrice =
+    price > 1000
+      ? price.toLocaleString("en-US", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        })
+      : price.toFixed(2);
+
   const changeValue = parseFloat(price_change || 0);
-  const formattedChange = Math.abs(changeValue) > 1000
-    ? Math.abs(changeValue).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })
-    : Math.abs(changeValue).toFixed(2);
-  
+  const formattedChange =
+    Math.abs(changeValue) > 1000
+      ? Math.abs(changeValue).toLocaleString("en-US", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        })
+      : Math.abs(changeValue).toFixed(2);
+
   const formattedPercent = parseFloat(price_change_percent || 0).toFixed(2);
 
   return (
@@ -112,7 +119,7 @@ const DirectPlatinumPrice = () => {
       </h2>
 
       {/* Single row with all data */}
-      <div className="bg-accent/30 p-4 md:p-3 lg:p-4 w-full border border-accent/30 rounded-md">
+      <div className="bg-[#00AEEF]/30 p-4 md:p-3 lg:p-4 w-full border border-[#00AEEF]/30 rounded-md">
         <div className="flex items-center justify-between gap-2">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -127,7 +134,9 @@ const DirectPlatinumPrice = () => {
           <div className="flex-1 grid grid-cols-3 gap-2 text-center">
             {/* Price */}
             <div>
-              <p className="text-[10px] md:text-[9px] lg:text-[10px] text-black1/60 font-medium mb-1">Price</p>
+              <p className="text-[10px] md:text-[9px] lg:text-[10px] text-black1/60 font-medium mb-1">
+                Price
+              </p>
               <p className="text-sm md:text-xs lg:text-sm font-bold text-green">
                 ¥{formattedPrice}
               </p>
@@ -135,22 +144,30 @@ const DirectPlatinumPrice = () => {
 
             {/* Change */}
             <div>
-              <p className="text-[10px] md:text-[9px] lg:text-[10px] text-black1/60 font-medium mb-1">Change</p>
+              <p className="text-[10px] md:text-[9px] lg:text-[10px] text-black1/60 font-medium mb-1">
+                Change
+              </p>
               <p
                 className={`text-sm md:text-xs lg:text-sm font-bold ${
                   changeValue >= 0 ? "text-green-600" : "text-red-500"
                 }`}
               >
-                {changeValue >= 0 ? `¥+${formattedChange}` : `¥-${formattedChange}`}
+                {changeValue >= 0
+                  ? `¥+${formattedChange}`
+                  : `¥-${formattedChange}`}
               </p>
             </div>
 
             {/* % Change */}
             <div>
-              <p className="text-[10px] md:text-[9px] lg:text-[10px] text-black1/60 font-medium mb-1">% Change</p>
+              <p className="text-[10px] md:text-[9px] lg:text-[10px] text-black1/60 font-medium mb-1">
+                % Change
+              </p>
               <p
                 className={`text-sm md:text-xs lg:text-sm font-bold ${
-                  parseFloat(formattedPercent) >= 0 ? "text-green-600" : "text-red-500"
+                  parseFloat(formattedPercent) >= 0
+                    ? "text-green-600"
+                    : "text-red-500"
                 }`}
               >
                 {parseFloat(formattedPercent) >= 0
@@ -163,13 +180,11 @@ const DirectPlatinumPrice = () => {
       </div>
 
       <div className="mt-2 text-start">
-        <p className="text-xs text-gray-600">
-          Source: {source}
-        </p>
+        <p className="text-xs text-gray-600">Source: {source}</p>
         <p className="font-medium text-date text-sm md:text-xs lg:text-sm">
           <a
             target="_blank"
-            className="text-accent hover:text-accent/60 transition-all duration-200"
+            className="text-[#00AEEF] hover:text-[#00AEEF]/60 transition-all duration-200"
             href="https://tradingeconomics.com/commodity/platinum"
             rel="noopener noreferrer"
           >

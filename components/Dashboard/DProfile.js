@@ -9,7 +9,7 @@
 //       <div className="bg-white rounded-md shadow-lg p-4 lg:p-8">
 //         <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6 lg:mb-8">
 //           <div className="relative">
-//             <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-accent/80 to-accent rounded-full flex items-center justify-center text-white text-xl font-bold">
+//             <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-[#00AEEF]/80 to-[#00AEEF] rounded-full flex items-center justify-center text-white text-xl font-bold">
 //               JD
 //             </div>
 //             <div className="absolute bottom-0 right-0 bg-green-500 w-4 h-4 lg:w-5 lg:h-5 rounded-full border-2 border-white"></div>
@@ -67,7 +67,7 @@
 //       <div className="bg-white rounded-md shadow-lg p-4 lg:p-8">
 //         <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6 lg:mb-8">
 //           <div className="relative">
-//             <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-accent/80 to-accent rounded-full flex items-center justify-center text-white text-xl font-bold">
+//             <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-[#00AEEF]/80 to-[#00AEEF] rounded-full flex items-center justify-center text-white text-xl font-bold">
 //               {initials}
 //             </div>
 //             <div className="absolute bottom-0 right-0 bg-green-500 w-4 h-4 lg:w-5 lg:h-5 rounded-full border-2 border-white"></div>
@@ -146,7 +146,7 @@ const ProfileContent = () => {
       <div className="bg-white rounded-md shadow-lg p-4 lg:p-8">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6 lg:mb-8">
           <div className="relative">
-            <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-accent/80 to-accent rounded-full flex items-center justify-center text-white text-xl font-bold">
+            <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-[#00AEEF]/80 to-[#00AEEF] rounded-full flex items-center justify-center text-white text-xl font-bold">
               {initials}
             </div>
             <div className="absolute bottom-0 right-0 bg-green-500 w-4 h-4 lg:w-5 lg:h-5 rounded-full border-2 border-white"></div>

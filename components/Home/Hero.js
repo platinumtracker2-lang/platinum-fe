@@ -43,7 +43,7 @@ const Hero = () => {
           className="w-full h-full object-cover md:object-left pl-0 md:pl-0"
         ></video>
         {/* Black overlay */}
-        <div className="absolute inset-0 bg-black/20 "></div>
+        <div className="absolute inset-0 bg-black/30 "></div>
       </div>
 
       {/* Text content */}
@@ -56,9 +56,9 @@ const Hero = () => {
           animate="visible"
         >
           Stay ahead with real-time{" "}
-          {/* <span className="text-accent">Platinum news, price And analysis</span> */}
+          {/* <span className="text-[#00AEEF]">Platinum news, price And analysis</span> */}
           <span
-            className="text-accent"
+            className="text-[#00AEEF]"
             // style={{ textShadow: "1px 1px 2px rgba(255, 255, 255, 0.8)" }}
           >
             Platinum market news, price and analysis
@@ -85,7 +85,7 @@ const Hero = () => {
         >
           <button
             onClick={() => router.push("/investments")}
-            className="bg-accent text-white px-6 py-2 rounded-sm w-full sm:w-auto hover:bg-accent/90"
+            className="bg-[#00AEEF] text-white px-6 py-2 rounded-sm w-full sm:w-auto hover:bg-[#00AEEF]/90"
           >
             Get Started
           </button>
