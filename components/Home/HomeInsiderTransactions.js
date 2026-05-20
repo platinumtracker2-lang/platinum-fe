@@ -19,7 +19,6 @@ const HomeInsiderTransactions = () => {
         
         // Filter for Canadian transactions and limit to 10 most recent
         const canadianTransactions = (Array.isArray(data) ? data : [])
-          .filter(t => t.country === "Canada")
           .slice(0, 10);
         
         setTransactions(canadianTransactions);

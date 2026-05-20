@@ -17,7 +17,7 @@ const DirectHomePlatinumPrice = () => {
          console.warn(
            `Platinum prices API returned ${response.status} — showing empty state`,
          );
-         setPlatinumPrices([]);
+         setPlatinumPrices([]); 
          setLoading(false);
          return;
        }

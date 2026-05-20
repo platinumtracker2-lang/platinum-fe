@@ -1,43 +1,61 @@
 import Navbar from "@/components/Navbar";
-import React from "react";
-import { useRouter } from "next/router";
-import DataHero from "@/components/Data/DataHero";
-import DPricePremium from "@/components/Data/DPricePremium";
-import DDemandDatabase from "@/components/Data/DDemandDatabase";
-import TabsSection from "@/components/Data/TabSection";
 import Footer from "@/components/Footer";
-import DSupply from "@/components/Data/DSupply";
-import DWPICSupply from "@/components/Data/DWPICSupply";
 import SEO from "@/components/SEO";
+import DataHero from "@/components/Data/Platinum/DataHero";
+import Breadcrumb from "@/components/Data/Platinum/Breadcrumb";
+import KeyTakeaways from "@/components/Data/Platinum/KeyTakeaways";
+import SectionNav from "@/components/Data/Platinum/SectionNav";
+import PriceSection from "@/components/Data/Platinum/PriceSection";
+import SupplySection from "@/components/Data/Platinum/SupplySection";
+import SouthAfricaSection from "@/components/Data/Platinum/SouthAfricaSection";
+import DemandSection from "@/components/Data/Platinum/DemandSection";
+import AutocatalystSection from "@/components/Data/Platinum/AutocatalystSection";
+import HydrogenSection from "@/components/Data/Platinum/HydrogenSection";
+import BalanceSection from "@/components/Data/Platinum/BalanceSection";
+import ForecastSection from "@/components/Data/Platinum/ForecastSection";
+import ProducersSection from "@/components/Data/Platinum/ProducersSection";
+import HistorySection from "@/components/Data/Platinum/HistorySection";
+import DriversSection from "@/components/Data/Platinum/DriversSection";
+import ETFsSection from "@/components/Data/Platinum/ETFsSection";
+import FAQSection from "@/components/Data/Platinum/FAQSection";
+import EditorialNote from "@/components/Data/Platinum/EditorialNote";
 
 const Data = () => {
-  const { query } = useRouter();
-  const currentTab = query.tab || "priceandpremiums";
-
   return (
-    <div>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: "#f3f4f6", minHeight: "100vh" }}>
       <SEO
-        title="Lithium Market Data - Price Trends, Supply & Demand Insights"
-        description="Access comprehensive Lithium market data, including price trends, supply and demand metrics, and industry analysis. Our detailed datasets provide the insights you need for informed decision-making in the Lithium market."
-        keywords="Lithium market data, price trends, Lithium supply and demand, industry analysis, Lithium research, market insights, Lithium and Lithium Alloys, data analytics"
-        canonicalUrl="https://musical-panda-75f15d.netlify.app/data"
+        title="Platinum Market Data - Live Prices, Supply & Demand Intelligence"
+        description="Access comprehensive platinum market data including live spot prices, supply-demand analytics, South African production intelligence, hydrogen fuel cell demand, and exclusive market insights used by industry professionals."
+        keywords="platinum prices today, live platinum market data, South Africa platinum production, hydrogen fuel cells, platinum supply chain analytics, platinum demand forecasting, PGM market opportunities, platinum investment intelligence"
+        canonicalUrl="https://platinum-frontend-opal.vercel.app/platinum"
       />
-      <Navbar />
+      
+      <nav id="navigation" role="navigation" aria-label="Main navigation">
+        <Navbar />
+      </nav>
+      
+      <Breadcrumb />
       <DataHero />
-      {/* tabs  */}
-      <div>
-        <TabsSection />
-        <div className="mt-6">
-          {currentTab === "priceandpremiums" && <DPricePremium />}
-          {currentTab === "demanddatabase" && <DDemandDatabase />}
-          {currentTab === "supply" && <DSupply />}
-          {currentTab === "wpicsupply" && <DWPICSupply />}
-        </div>
-      </div>
+      <KeyTakeaways />
+      <SectionNav />
+      <PriceSection />
+      <SupplySection />
+      <SouthAfricaSection />
+      <DemandSection />
+      <AutocatalystSection />
+      <HydrogenSection />
+      <BalanceSection />
+      <ForecastSection />
+      <ProducersSection />
+      <HistorySection />
+      <DriversSection />
+      <ETFsSection />
+      <FAQSection />
+      <EditorialNote />
 
-      <div className="mt-24">
+      <footer role="contentinfo" aria-label="Site footer">
         <Footer />
-      </div>
+      </footer>
     </div>
   );
 };
