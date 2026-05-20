@@ -1,0 +1,181 @@
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+
+const DirectHomePlatinumPrice = () => {
+  const [platinumPrices, setPlatinumPrices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+ useEffect(() => {
+   const fetchPricesFromDatabase = async () => {
+     try {
+       setLoading(true);
+
+       const response = await axios("/api/platinum-prices");
+
+       if (!response.data) {
+         console.warn(
+           `Platinum prices API returned ${response.status} — showing empty state`,
+         );
+         setPlatinumPrices([]);
+         setLoading(false);
+         return;
+       }
+
+       const data = response.data;
+       const metalPrices = data.slice(0, 4).map((item) => ({
+         metal_name: item.metal_name,
+         price: parseFloat(item.price),
+         price_change: parseFloat(item.price_change),
+         price_change_percent: parseFloat(item.price_change_percent),
+       }));
+
+       setPlatinumPrices(metalPrices);
+     } catch (err) {
+       console.error("Error fetching prices from database:", err);
+       setError(err.message);
+
+       setPlatinumPrices([]);
+     } finally {
+       setLoading(false);
+     }
+   };
+
+   fetchPricesFromDatabase();
+
+   // Refresh every 2 minutes
+   const interval = setInterval(fetchPricesFromDatabase, 2 * 60 * 1000);
+   return () => clearInterval(interval);
+ }, []);
+
+  const formatValue = (value) => {
+    if (value === null || value === undefined || isNaN(value)) {
+      return "0.00";
+    }
+    return parseFloat(value).toFixed(4);
+  };
+
+  const getChangeClass = (value) => {
+    if (value > 0) return "text-green-500";
+    if (value < 0) return "text-red-500";
+    return "text-black";
+  };
+
+    const renderRow = (metalData) => (
+      <tr className="text-md hover:bg-accent/10" key={metalData.metal_name}>
+        <td className="border-t px-4 py-5 font-sm">
+          {metalData.metal_name}
+          {metalData.source && (
+            <span className="text-sm text-gray-500 ml-2">
+              ({metalData.source})
+            </span>
+          )}
+        </td>
+        <td className="border-t px-4 py-5">${formatValue(metalData.price)}</td>
+        <td
+          className={`border-t px-4 py-5 ${getChangeClass(
+            parseFloat(metalData.price_change),
+          )}`}
+        >
+          {metalData.price_change > 0
+            ? `$+${formatValue(metalData.price_change)}`
+            : metalData.price_change < 0
+              ? `${formatValue(metalData.price_change)}`
+              : `$0.0000`}
+        </td>
+        <td
+          className={`border-t px-4 py-5 ${getChangeClass(
+            parseFloat(metalData.price_change_percent),
+          )}`}
+        >
+          {formatValue(metalData.price_change_percent)}%
+        </td>
+      </tr>
+    );
+  if (loading) {
+    return (
+      <div className="overflow-x-auto custom-scrollbar-hidden">
+        <table className="table-auto w-full border-collapse text-md">
+          <thead className="text-left">
+            <tr className="text-black/60">
+              <th className="border-t px-7 py-4">Metal</th>
+              <th className="border-t px-7 py-4">Price (USD/oz)</th>
+              <th className="border-t px-7 py-4">Change</th>
+              <th className="border-t px-7 py-4">% Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <tr key={index} className="animate-pulse">
+                <td className="border-t px-7 py-4">
+                  <div className="h-4 w-24 bg-zinc-200 rounded" />
+                </td>
+                <td className="border-t px-7 py-4">
+                  <div className="h-4 w-28 bg-zinc-200 rounded" />
+                </td>
+                <td className="border-t px-7 py-4">
+                  <div className="h-4 w-20 bg-zinc-200 rounded" />
+                </td>
+                <td className="border-t px-7 py-4">
+                  <div className="h-4 w-16 bg-zinc-200 rounded" />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div className="pt-4 pb-2 border-t text-xs text-gray-500 text-center">
+          <div className="h-3 w-56 bg-zinc-200 rounded animate-pulse mx-auto" />
+        </div>
+      </div>
+    );
+  }
+
+
+  if (error && platinumPrices.length === 0) {
+    return (
+      <div className="text-center py-4 text-red-500">
+        Error: {error}
+        <p className="text-sm text-gray-600 mt-2">Using fallback data</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="overflow-x-auto custom-scrollbar-hidden">
+      <table className="table-auto w-full border-collapse text-sm">
+        <thead className="text-left">
+          <tr className="text-black/60">
+            <th className="border-t px-4 py-2">Metal</th>
+            <th className="border-t px-4 py-2">Price (USD/lb)</th>
+            <th className="border-t px-4 py-2">Change</th>
+            <th className="border-t px-4 py-2">% Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Array.isArray(platinumPrices) && platinumPrices.length > 0 ? (
+            platinumPrices.map((metalData) => renderRow(metalData))
+          ) : (
+            <tr>
+              <td colSpan="5" className="text-center py-4 text-gray-500">
+                No price data available
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+
+      {error && (
+        <div className="mt-2 text-xs text-orange-600 text-center">
+          Note: Some data may be simulated due to API restrictions
+        </div>
+      )}
+
+      <div className="mt-2 mb-3  text-xs text-gray-500 text-center">
+        Last updated: {new Date().toLocaleTimeString()} • Auto-refresh: 2 min
+      </div>
+    </div>
+  );
+};
+
+export default DirectHomePlatinumPrice;
