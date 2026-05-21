@@ -10,7 +10,6 @@ const DirectPlatinumPrice = () => {
       try {
         setLoading(true);
 
-        // Fetch platinum price from CME Group API
         const response = await fetch("/api/cme-platinum-spot");
 
         if (!response.ok) {
@@ -18,34 +17,28 @@ const DirectPlatinumPrice = () => {
             `Platinum price API returned ${response.status} — showing empty state`,
           );
           setPlatinumData(null);
-          setLoading(false);
           return;
         }
 
         const data = await response.json();
 
-        if (!data.success || !data.data) {
+        if (!Array.isArray(data) || data.length === 0) {
           setPlatinumData(null);
-          setLoading(false);
           return;
         }
 
-        // Use CME platinum data directly
-        const cmeData = data.data;
+        const cmeData = data[0];
 
         setPlatinumData({
-          price: parseFloat(cmeData.last_price),
-          price_change: parseFloat(cmeData.price_change),
-          price_change_percent: parseFloat(cmeData.price_change_percent),
+          price: parseFloat(cmeData.price),
+          price_change: parseFloat(cmeData.day_change),
+          price_change_percent: parseFloat(cmeData.percent_change),
           source: "CME Group",
-          symbol: cmeData.globex_code,
-          last_updated: cmeData.scraped_at,
+          last_updated: cmeData.date,
         });
       } catch (error) {
         console.error("Error fetching CME platinum spot price:", error);
         setError(error.message);
-
-        // No fallback data - set to null to show error state
         setPlatinumData(null);
       } finally {
         setLoading(false);
@@ -54,7 +47,6 @@ const DirectPlatinumPrice = () => {
 
     fetchPlatinumPrice();
 
-    // Refresh every 2 minutes
     const interval = setInterval(fetchPlatinumPrice, 2 * 60 * 1000);
     return () => clearInterval(interval);
   }, []);
@@ -124,8 +116,8 @@ const DirectPlatinumPrice = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
-              className="w-20 h-10 md:w-16 md:h-8 lg:w-20 lg:h-10 object-contain"
-              src="/logo.jpg"
+              className="w-24 md:w-28 lg:w-28 h-auto object-contain"
+              src="/logo.webp"
               alt="Platinum Tracker Logo"
             />
           </div>
@@ -138,7 +130,7 @@ const DirectPlatinumPrice = () => {
                 Price
               </p>
               <p className="text-sm md:text-xs lg:text-sm font-bold text-green">
-                ¥{formattedPrice}
+                ${formattedPrice}
               </p>
             </div>
 
@@ -153,8 +145,8 @@ const DirectPlatinumPrice = () => {
                 }`}
               >
                 {changeValue >= 0
-                  ? `¥+${formattedChange}`
-                  : `¥-${formattedChange}`}
+                  ? `+${formattedChange}`
+                  : `-${formattedChange}`}
               </p>
             </div>
 
