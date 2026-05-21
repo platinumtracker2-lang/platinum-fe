@@ -6,9 +6,9 @@ const Footer2 = () => {
   return (
     <div className="bg-[#00AEEF] text-white w-full py-8 pb-10">
       <div className="container mx-auto px-4 flex flex-col items-center text-center gap-4">
-        <div className="relative w-[140px] h-[45px]">
+        <div className="relative w-[200px] h-[100px]">
           <Image
-            src="/logo.jpg"
+            src="/logo.webp"
             alt="Platinum Logo"
             fill
             className="object-contain"

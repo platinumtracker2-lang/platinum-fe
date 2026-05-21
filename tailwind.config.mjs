@@ -19,7 +19,7 @@ export default {
         lightgray: "#292929",
         date: "#282828b9",
         // Keep [#00AEEF] mapped to the primary platinum green for existing [#00AEEF]- usages
-        [#00AEEF]: "#00AEEF",
+        accent: "#00AEEF",
         "[#00AEEF]-light": "#00AEEF",
         "[#00AEEF]-bright": "#00AEEF",
       },
