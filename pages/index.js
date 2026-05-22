@@ -3,7 +3,6 @@ import Hero from "@/components/Home/Hero";
 import LatestNews from "@/components/Home/LatestNews";
 import StockNews from "@/components/Home/StockNews";
 import Navbar from "@/components/Navbar";
-import PopularIntradayReturn from "@/components/Home/MostFollowed";
 import StayAhead from "@/components/Home/StayAhead";
 import PressReleaseNews from "@/components/Home/PressReleaseNews";
 import PopularTools from "@/components/Home/PopularTools";
@@ -101,13 +100,10 @@ const home = () => {
         </div>
       </div>
 
-      {/* Press Release + Most Followed */}
-      <div className="grid grid-cols-1 md:grid-cols-9 px-3 md:px-4 gap-3 md:gap-6 mt-3 md:mt-6">
-        <div className="col-span-1 md:col-span-7 border rounded-md px-3 py-3">
+      {/* Press Release — full width */}
+      <div className="px-3 md:px-4 mt-3 md:mt-6">
+        <div className="border rounded-md px-3 py-3">
           <PressReleaseNews />
-        </div>
-        <div className="col-span-1 md:col-span-2 border rounded-md px-3 py-3">
-          <PopularIntradayReturn />
         </div>
       </div>
 
