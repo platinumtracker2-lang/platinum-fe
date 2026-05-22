@@ -42,88 +42,66 @@ const MostPopularNews = () => {
 
   if (loading) {
     return (
-      <div className="mb-14 md:mb-10">
-        <h2 className="text-[21px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-4">
+      <div className="mb-2">
+        <h2 className="text-[17px] md:text-[19px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-3">
           Most Popular
         </h2>
-        <div className="text-center py-8">Loading most popular news...</div>
+        <div className="text-center py-6 text-gray-500 text-sm">Loading...</div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="mb-14 md:mb-10">
-        <h2 className="text-[21px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-4">
+      <div className="mb-2">
+        <h2 className="text-[17px] md:text-[19px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-3">
           Most Popular
         </h2>
-        <div className="text-center py-8 text-red-500">
-          Error loading news: {error}
-        </div>
+        <div className="text-center py-6 text-red-500 text-sm">Error loading news: {error}</div>
       </div>
     );
   }
 
   if (news.length === 0) {
     return (
-      <div className="mb-14 md:mb-10">
-        <h2 className="text-[21px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-4">
+      <div className="mb-2">
+        <h2 className="text-[17px] md:text-[19px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-3">
           Most Popular
         </h2>
-        <div className="text-center py-8 text-gray-500">
-          No popular news available at this time
-        </div>
+        <div className="text-center py-6 text-gray-500 text-sm">No popular news available at this time</div>
       </div>
     );
   }
 
   return (
-    <div className="mb-14 md:mb-10">
-      <h2 className="text-[21px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-4">
+    <div className="mb-2 md:mb-4">
+      <h2 className="text-[17px] md:text-[19px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-3">
         Most Popular
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5">
         {news.map((item, index) => (
           <Link
             href={item.url}
             target="_blank"
             key={item.id || index}
-            className="flex items-center group w-full border-b border-gray-300 pb-7"
+            className="flex items-center group w-full border-b border-gray-200 pb-3"
           >
-            {/* Number vertically aligned */}
-            <div className="flex flex-col items-center justify-center mr-4">
-              <span className="text-3xl font-bold text-black/30 group-hover:text-[#00AEEF]">
+            <div className="flex flex-col items-center justify-center mr-3 min-w-[28px]">
+              <span className="text-2xl font-bold text-black/25 group-hover:text-[#00AEEF]">
                 {index + 1}
               </span>
             </div>
-            {/* Content */}
-            <div className="flex-1 flex flex-col">
-              {/* Ticker Badge */}
+            <div className="flex-1 flex flex-col min-w-0">
               {item.ticker && (
-                <div className="mb-2">
-                  <span className="bg-[#00AEEF] text-[10px] rounded-sm text-white px-2 py-1">
-                    {item.ticker}
-                  </span>
-                </div>
+                <span className="bg-[#00AEEF] text-[9px] rounded-sm text-white px-1.5 py-0.5 mb-1 self-start">
+                  {item.ticker}
+                </span>
               )}
-              {/* Title */}
-              <h3
-                className="text-[15px] group-hover:underline transition-all duration-200 font-medium flex-1"
-                style={{
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                }}
-              >
+              <h3 className="text-[13px] group-hover:underline font-medium line-clamp-2 leading-snug">
                 {item.title}
               </h3>
-              {/* Company Name */}
               {item.company_name && (
-                <p className="text-[12px] text-gray-600 mt-1">
-                  {item.company_name}
-                </p>
+                <p className="text-[11px] text-gray-600 mt-0.5">{item.company_name}</p>
               )}
             </div>
           </Link>

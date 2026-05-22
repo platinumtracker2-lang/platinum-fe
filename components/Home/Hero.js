@@ -29,7 +29,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className=" relative overflow-hidden px-5 sm:px-8 md:px-20 lg:px-32 xl:px-40 w-full h-[80vh] py-20 md:h-[70vh] flex items-center justify-start mb-14 bg-black">
+    <div className="relative overflow-hidden px-4 sm:px-8 md:px-20 lg:px-32 xl:px-40 w-full h-[55vh] sm:h-[65vh] md:h-[65vh] py-10 md:py-16 flex items-center justify-start mb-3 md:mb-6 bg-black">
       {/* Background video and black overlay */}
       <div className="absolute inset-0">
         <video

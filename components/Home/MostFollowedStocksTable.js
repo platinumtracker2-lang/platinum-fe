@@ -390,19 +390,17 @@ const MostFollowedStocksTable = () => {
 
   if (loading) {
     return (
-      <div className="w-full px-3 md:px-10 lg:px-12 py-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-center items-center py-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#00AEEF]"></div>
-            <span className="ml-3 text-gray-600">Loading stock data...</span>
-          </div>
+      <div className="w-full px-3 md:px-6 py-4 bg-gray-50">
+        <div className="flex justify-center items-center py-6">
+          <div className="animate-spin rounded-full h-7 w-7 border-t-2 border-b-2 border-[#00AEEF]"></div>
+          <span className="ml-3 text-gray-600 text-sm">Loading stock data...</span>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full px-3 md:px-10 lg:px-12 py-6 bg-gray-50">
+    <div className="w-full px-3 md:px-6 py-4 bg-gray-50">
       {/* Modal for error messages */}
       {isModalOpen && (
         <div
@@ -432,7 +430,7 @@ const MostFollowedStocksTable = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {renderColumn(
             stocksData.most_watched,
-            "Most Watched Lithium",
+            "Most Watched Platinum",
             "Live Performance",
           )}
           {renderColumn(
@@ -442,7 +440,7 @@ const MostFollowedStocksTable = () => {
           )}
           {renderColumn(
             stocksData.global_market_leaders,
-            "Australian Lithium Leaders",
+            "Global PGM Leaders",
             "Live Tracking",
           )}
         </div>

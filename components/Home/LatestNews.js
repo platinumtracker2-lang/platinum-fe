@@ -449,10 +449,10 @@ const LatestNews = () => {
   if (loading) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+        <h1 className="text-[17px] md:text-[19px] cambay font-bold mb-3 border-b border-black/10 pb-2">
           Latest Platinum News
         </h1>
-        <div className="flex justify-center items-center h-32">
+        <div className="flex justify-center items-center h-24">
           <Loader />
         </div>
       </div>
@@ -462,10 +462,10 @@ const LatestNews = () => {
   if (newsData.length === 0) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+        <h1 className="text-[17px] md:text-[19px] cambay font-bold mb-3 border-b border-black/10 pb-2">
           Latest Platinum News
         </h1>
-        <div className="text-center py-8 text-gray-500">
+        <div className="text-center py-6 text-gray-500">
           No news available at this time
         </div>
       </div>
@@ -474,11 +474,11 @@ const LatestNews = () => {
 
   return (
     <div>
-      <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+      <h1 className="text-[17px] md:text-[19px] cambay font-bold mb-3 border-b border-black/10 pb-2">
         Latest Platinum News
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5">
         {/* Left Side: Main News with Image */}
         <div>
           {newsData[0] && (
@@ -492,87 +492,62 @@ const LatestNews = () => {
                 <img
                   src={newsData[0].image_url}
                   alt={newsData[0].title}
-                  className="w-full h-64 object-cover mb-2 rounded-md"
+                  className="w-full h-40 sm:h-48 md:h-52 object-cover mb-2 rounded-md"
                 />
               )}
-
-              {/* Source or Ticker Badge */}
               {(newsData[0].source || newsData[0].ticker) && (
-                <div className="mb-2">
-                  <span className="bg-[#00AEEF] text-[11px] rounded-sm text-white px-2 py-1">
+                <div className="mb-1">
+                  <span className="bg-[#00AEEF] text-[10px] rounded-sm text-white px-2 py-0.5">
                     {newsData[0].source || newsData[0].ticker}
                   </span>
                 </div>
               )}
-
-              <h2 className="text-lg font-semibold text-primary mb-1 hover:underline">
+              <h2 className="text-[15px] md:text-[16px] font-semibold text-primary mb-1 hover:underline leading-snug">
                 {newsData[0].title}
               </h2>
-
-              {/* Summary or Content */}
               {(newsData[0].summary || newsData[0].content) && (
-                <p className="text-[14px] text-gray-600 mb-2 line-clamp-2">
-                  {(newsData[0].summary || newsData[0].content).length > 150
-                    ? `${(newsData[0].summary || newsData[0].content).substring(0, 150)}...`
-                    : newsData[0].summary || newsData[0].content}
+                <p className="text-[13px] text-gray-600 mb-1 line-clamp-2">
+                  {(newsData[0].summary || newsData[0].content).substring(0, 130)}...
                 </p>
               )}
-
-              {/* Company Name (for stock news) */}
               {newsData[0].company_name && (
-                <p className="text-[13px] text-gray-600 mb-1">
-                  {newsData[0].company_name}
-                </p>
+                <p className="text-[12px] text-gray-600 mb-0.5">{newsData[0].company_name}</p>
               )}
-
-              <p className="text-gray-500 text-sm">
-                {formatDate(newsData[0].date)}
-              </p>
+              <p className="text-gray-500 text-xs">{formatDate(newsData[0].date)}</p>
             </a>
           )}
         </div>
 
-        {/* Right Side: Three Vertical News with Images */}
-        <div className="space-y-4">
+        {/* Right Side: Three Vertical News */}
+        <div className="space-y-3">
           {newsData.slice(1, 4).map((news, index) => (
             <a
               key={news.id || index}
               href={news.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex space-x-4"
+              className="flex gap-3 border-b border-gray-100 pb-3 last:border-b-0 last:pb-0"
             >
               {news.image_url && (
                 <img
                   src={news.image_url}
                   alt={news.title}
-                  className="w-24 h-24 object-cover flex-shrink-0 rounded-md"
+                  className="w-20 h-16 md:w-20 md:h-16 object-cover flex-shrink-0 rounded-md"
                 />
               )}
-              <div className="flex flex-col justify-start">
-                {/* Source or Ticker Badge */}
+              <div className="flex flex-col justify-start min-w-0">
                 {(news.source || news.ticker) && (
-                  <div className="mb-1">
-                    <span className="bg-[#00AEEF] text-[10px] rounded-sm text-white px-2 py-1">
-                      {news.source || news.ticker}
-                    </span>
-                  </div>
+                  <span className="bg-[#00AEEF] text-[9px] rounded-sm text-white px-1.5 py-0.5 mb-1 self-start">
+                    {news.source || news.ticker}
+                  </span>
                 )}
-
-                <h3 className="text-sm font-medium text-primary line-clamp-2 text-left hover:underline">
+                <h3 className="text-[13px] font-medium text-primary line-clamp-2 hover:underline leading-snug">
                   {news.title}
                 </h3>
-
-                {/* Company Name (for stock news) */}
                 {news.company_name && (
-                  <p className="text-[11px] text-gray-600 mt-1">
-                    {news.company_name}
-                  </p>
+                  <p className="text-[11px] text-gray-600 mt-0.5">{news.company_name}</p>
                 )}
-
-                <p className="text-gray-500 text-xs mt-2">
-                  {formatDate(news.date)}
-                </p>
+                <p className="text-gray-500 text-[11px] mt-1">{formatDate(news.date)}</p>
               </div>
             </a>
           ))}
