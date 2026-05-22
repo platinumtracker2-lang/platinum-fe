@@ -13,7 +13,6 @@ import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import Footer from "@/components/Footer";
 import TVPlatinumCFD from "@/components/Home/TVPlatinumCFD";
 import TVPlatinum from "@/components/Home/TVPlatinum";
-import DirectPlatinumPrice from "@/components/Home/DirectPlatinumPrice";
 import DirectHomePlatinumPrice from "@/components/Home/DirectHomePlatinumPrice";
 import HomeInsiderTransactions from "@/components/Home/HomeInsiderTransactions";
 import SEO from "@/components/SEO";
@@ -92,12 +91,9 @@ const home = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-9 px-4 gap-8 mt-8">
-        <div className="md:col-span-7 border rounded-md  px-3 py-4 ">
+      <div className="px-4 mt-8">
+        <div className="border rounded-md px-3 py-4">
           <LatestNews />
-        </div>
-        <div className="md:col-span-2 border rounded-md  px-3 py-4 ">
-          <DirectPlatinumPrice />
         </div>
       </div>
 
