@@ -91,9 +91,12 @@ const home = () => {
         </div>
       </div>
 
-      <div className="px-4 mt-8">
-        <div className="border rounded-md px-3 py-4">
+      <div className="grid md:grid-cols-9 px-4 gap-8 mt-8">
+        <div className="md:col-span-7 border rounded-md px-3 py-4">
           <LatestNews />
+        </div>
+        <div className="md:col-span-2 border rounded-md px-3 py-4">
+          <PopularTools />
         </div>
       </div>
 
@@ -102,7 +105,7 @@ const home = () => {
           <PressReleaseNews />
         </div>
         <div className="md:col-span-2 border rounded-md  px-3 py-4 ">
-          <PopularTools />
+          <PopularIntradayReturn />
         </div>
       </div>
 
