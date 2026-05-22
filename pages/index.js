@@ -18,6 +18,7 @@ import HomeInsiderTransactions from "@/components/Home/HomeInsiderTransactions";
 import SEO from "@/components/SEO";
 import StocksMarquee from "@/components/Home/StocksMarquee";
 import MostFollowedStocksTable from "@/components/Home/MostFollowedStocksTable";
+import TVTickerTags from "@/components/Home/TVTickerTags";
 
 const home = () => {
   return (
@@ -91,15 +92,17 @@ const home = () => {
         </div>
       </div>
 
+      {/* Latest News + PGM Tickers */}
       <div className="grid md:grid-cols-9 px-4 gap-8 mt-8">
         <div className="md:col-span-7 border rounded-md px-3 py-4">
           <LatestNews />
         </div>
         <div className="md:col-span-2 border rounded-md px-3 py-4">
-          <PopularTools />
+          <TVTickerTags />
         </div>
       </div>
 
+      {/* Press Release + Most Followed */}
       <div className="grid md:grid-cols-9 px-4 gap-8 mt-8">
         <div className="md:col-span-7 border rounded-md  px-3 py-4 ">
           <PressReleaseNews />
@@ -109,12 +112,13 @@ const home = () => {
         </div>
       </div>
 
+      {/* Stock News + Popular Tools */}
       <div className="grid md:grid-cols-9 px-4 gap-8 mt-8">
         <div className="md:col-span-7 border rounded-md  px-3 py-4 ">
           <StockNews />
         </div>
         <div className="md:col-span-2 border rounded-md  px-3 py-4 ">
-          <PopularIntradayReturn />
+          <PopularTools />
         </div>
       </div>
 
