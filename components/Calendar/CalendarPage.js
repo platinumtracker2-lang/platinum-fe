@@ -50,7 +50,7 @@ const Calendar = () => {
   return (
     <>
       <Navbar />
-      <div className="px-2 md:px-20 mt-[65px] md:mt-[84px]">
+      <div className="px-2 md:px-20 mt-[112px] md:mt-[120px]">
         {/* Pass selectedYear and setSelectedYear to YearCalendar */}
         <YearCalendar
           calendarData={filteredEvents}

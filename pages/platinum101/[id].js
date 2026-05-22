@@ -24,7 +24,7 @@ const DetailPage = ({ card }) => {
       <C101Breadcrumb link={card.href} title={card.title} />
 
       {/* Page Content */}
-      <div className="flex flex-col mt-[3.5rem]">
+      <div className="flex flex-col mt-[7rem]">
         {/* header */}
         <div className="relative mb-16">
           {/* Background GIF */}
