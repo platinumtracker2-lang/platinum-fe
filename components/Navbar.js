@@ -266,6 +266,39 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* ── Network bar ── */}
+      <div className="border-t border-gray-100 bg-gray-50/80 px-4 xl:px-10 py-1 overflow-x-auto custom-scrollbar-hidden">
+        <div className="flex items-center gap-2 min-w-max xl:container xl:mx-auto">
+          <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-widest mr-1 flex-shrink-0">
+            Network
+          </span>
+          {/* Current site — active pill */}
+          <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full border border-[#00AEEF] bg-white text-[12px] font-semibold text-[#00AEEF] flex-shrink-0">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] inline-block" />
+            Platinum ✓
+          </span>
+          {[
+            { label: "Lithium",     color: "#6EE7B7", url: "https://www.lithiumtracker.com/" },
+            { label: "Copper",      color: "#FCA5A5", url: "https://www.coppertracker.com/" },
+            { label: "Nickel",      color: "#93C5FD", url: "https://www.nickelmetaltracker.com/" },
+            { label: "Uranium",     color: "#FDE68A", url: "https://www.uraniumtracker.com/" },
+            { label: "Gold & Silver", color: "#FCD34D", url: "https://www.goldandsilvertracker.com/" },
+          ].map(({ label, color, url }) => (
+            <a
+              key={label}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full border border-gray-200 bg-white hover:border-gray-400 text-[12px] font-medium text-gray-600 hover:text-gray-900 transition-colors flex-shrink-0"
+            >
+              <span className="w-1.5 h-1.5 rounded-full inline-block flex-shrink-0" style={{ backgroundColor: color }} />
+              {label}
+              <span className="text-[10px] text-gray-400">↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
       {/* Mobile Menu (Visible below xl) */}
       {menuOpen && (
         <>
