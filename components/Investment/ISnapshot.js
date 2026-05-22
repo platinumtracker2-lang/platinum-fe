@@ -47,11 +47,35 @@ const TVSingleQuote = ({ symbol }) => {
   );
 };
 
+// Hardcoded overrides for tickers that map to wrong/unavailable TV symbols
+const SYMBOL_OVERRIDES = {
+  // Glencore — only on LSE as GLEN, not available on free widget; use OTC ADR
+  "GLEN":   "OTC:GLCNF",
+  // PPLT is a Sprott ETF — not on free widget; replace with PALL (Palladium ETF)
+  "PPLT":   "NYSE:PALL",
+  // PLG — Platinum Group Metals already covered by PTM on TSX
+  "PLG":    "TSX:PTM",
+  // Common OTC mismatches
+  "ANGPY":  "OTC:ANGPY",
+  "IMPUY":  "OTC:IMPUY",
+  "NGLOY":  "OTC:NGLOY",
+  "SBSW":   "NYSE:SBSW",
+  "IVN":    "TSX:IVN",
+  "LZM":    "NYSE:LZM",
+  "GENM":   "TSX:GENM",
+  "PTM":    "TSX:PTM",
+  "CLRMF":  "OTC:CLRMF",
+};
+
 // Map ticker → TradingView exchange:symbol
 const toTVSymbol = (ticker, exchange) => {
   if (!ticker) return null;
   const t = ticker.split(".")[0].toUpperCase();
-  // Use exchange from DB if available, otherwise guess common ones
+
+  // Check override map first
+  if (SYMBOL_OVERRIDES[t]) return SYMBOL_OVERRIDES[t];
+
+  // Use exchange from DB if available
   if (exchange) {
     const ex = exchange.toUpperCase();
     if (ex === "TSX" || ex === "TSX-V" || ex === "TSXV") return `TSX:${t}`;
@@ -62,12 +86,27 @@ const toTVSymbol = (ticker, exchange) => {
     if (ex === "LSE") return `LSE:${t}`;
     return `${ex}:${t}`;
   }
+
   // Fallback heuristics
   if (t.endsWith("F") && t.length >= 5) return `OTC:${t}`;
   return `NYSE:${t}`;
 };
 
-const ISnapshot = ({ stockData = [] }) => {
+// Verified working TradingView symbols — used as fallback if DB returns nothing
+const FALLBACK_STOCKS = [
+  { name: "Sibanye-Stillwater",        ticker: "SBSW",   stock_exchange: "NYSE" },
+  { name: "Anglo American Platinum",   ticker: "NGLOY",  stock_exchange: "OTC"  },
+  { name: "Impala Platinum",           ticker: "IMPUY",  stock_exchange: "OTC"  },
+  { name: "Ivanhoe Mines",             ticker: "IVN",    stock_exchange: "TSX"  },
+  { name: "Platinum Group Metals",     ticker: "PTM",    stock_exchange: "TSX"  },
+  { name: "Generation Mining",         ticker: "GENM",   stock_exchange: "TSX"  },
+  { name: "Lifezone Metals",           ticker: "LZM",    stock_exchange: "NYSE" },
+  { name: "Valterra Platinum",         ticker: "ANGPY",  stock_exchange: "OTC"  },
+  { name: "Clean Air Metals",          ticker: "CLRMF",  stock_exchange: "OTC"  },
+  { name: "Glencore",                  ticker: "GLCNF",  stock_exchange: "OTC"  },
+  { name: "Palladium ETF (PALL)",      ticker: "PALL",   stock_exchange: "NYSE" },
+  { name: "Sprott Physical Platinum",  ticker: "SPPP",   stock_exchange: "NYSE" },
+];
   const [stocksData, setStocksData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -101,6 +140,11 @@ const ISnapshot = ({ stockData = [] }) => {
             current_price: parseFloat(s.last_price?.replace(/[$,]/g, "") || 0),
             intraday_percentage: parseFloat(s.intraday_percentage?.replace("%", "") || 0),
           }));
+        }
+
+        // Final fallback — always show verified working symbols
+        if (allStocks.length === 0) {
+          allStocks = FALLBACK_STOCKS;
         }
 
         setStocksData(allStocks.slice(0, 12));
