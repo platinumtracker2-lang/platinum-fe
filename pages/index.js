@@ -9,7 +9,6 @@ import PressReleaseNews from "@/components/Home/PressReleaseNews";
 import PopularTools from "@/components/Home/PopularTools";
 import MostPopularNews from "@/components/Home/MostPopularNews";
 import Substacks from "@/components/Home/Substacks";
-import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import Footer from "@/components/Footer";
 import TVPlatinumCFD from "@/components/Home/TVPlatinumCFD";
 import TVPlatinum from "@/components/Home/TVPlatinum";
@@ -85,11 +84,10 @@ const home = () => {
             <HomeInsiderTransactions />
           </div>
         </div>
-        <div className="col-span-1 md:col-span-2 flex flex-col gap-3 md:gap-4">
+        <div className="col-span-1 md:col-span-2">
           <div className="border rounded-md px-3 py-3">
             <Substacks />
           </div>
-          <DailyNewsletterAd />
         </div>
       </div>
 
