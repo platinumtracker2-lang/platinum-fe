@@ -40,74 +40,84 @@ const Substacks = () => {
     fetchSubstacks();
   }, []);
 
+  // ✅ FIX: Return null while loading - no spinner or "Loading..." text
+  if (loading) {
+    return null;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
+          Platinum Substacks
+        </h2>
+        <div className="text-center py-8 text-red-400 text-sm">
+          Could not load posts. Please try again later.
+        </div>
+      </div>
+    );
+  }
+
+  if (posts.length === 0) {
+    return (
+      <div>
+        <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
+          Platinum Substacks
+        </h2>
+        <div className="text-center py-8 text-gray-400 text-sm">
+          No posts available at this time.
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
         Platinum Substacks
       </h2>
 
-      {loading && (
-        <div className="flex items-center justify-center h-32 gap-3">
-          <div className="animate-spin rounded-full h-7 w-7 border-t-2 border-b-2 border-[#00AEEF]" />
-          <span className="text-gray-500 text-sm">Loading...</span>
-        </div>
-      )}
+      <div className="space-y-4">
+        {posts.slice(0, 3).map((post) => (
+          <Link
+            key={post.id}
+            href={post.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-3 pb-4 border-b border-gray-100 last:border-b-0 group cursor-pointer"
+          >
+            {/* Thumbnail */}
+            <div className="flex-shrink-0 w-[72px] h-[64px] rounded-md overflow-hidden bg-gray-100">
+              <img
+                src={post.image || FALLBACK_IMG}
+                alt={post.title ? post.title.slice(0, 40) : "Substack post"}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                onError={(e) => { e.target.src = FALLBACK_IMG; }}
+              />
+            </div>
 
-      {!loading && error && (
-        <div className="text-center py-8 text-red-400 text-sm">
-          Could not load posts. Please try again later.
-        </div>
-      )}
-
-      {!loading && !error && posts.length === 0 && (
-        <div className="text-center py-8 text-gray-400 text-sm">
-          No posts available at this time.
-        </div>
-      )}
-
-      {!loading && !error && posts.length > 0 && (
-        <div className="space-y-4">
-          {posts.slice(0, 3).map((post) => (
-            <Link
-              key={post.id}
-              href={post.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-start gap-3 pb-4 border-b border-gray-100 last:border-b-0 group cursor-pointer"
-            >
-              {/* Thumbnail */}
-              <div className="flex-shrink-0 w-[72px] h-[64px] rounded-md overflow-hidden bg-gray-100">
-                <img
-                  src={post.image || FALLBACK_IMG}
-                  alt={post.title ? post.title.slice(0, 40) : "Substack post"}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                  onError={(e) => { e.target.src = FALLBACK_IMG; }}
-                />
-              </div>
-
-              {/* Text */}
-              <div className="flex flex-col flex-1 min-w-0">
-                <span className="text-[10px] font-semibold text-[#00AEEF] uppercase tracking-wide mb-0.5">
-                  {post.source || "Substack"}
+            {/* Text */}
+            <div className="flex flex-col flex-1 min-w-0">
+              <span className="text-[10px] font-semibold text-[#00AEEF] uppercase tracking-wide mb-0.5">
+                {post.source || "Substack"}
+              </span>
+              <h3 className="text-sm font-bold text-gray-800 leading-snug group-hover:text-[#00AEEF] transition-colors line-clamp-2">
+                {post.title}
+              </h3>
+              {post.snippet && (
+                <p className="text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">
+                  {post.snippet}
+                </p>
+              )}
+              {post.date && (
+                <span className="text-[10px] text-gray-400 mt-1">
+                  {formatDate(post.date)}
                 </span>
-                <h3 className="text-sm font-bold text-gray-800 leading-snug group-hover:text-[#00AEEF] transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-                {post.snippet && (
-                  <p className="text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">
-                    {post.snippet}
-                  </p>
-                )}
-                {post.date && (
-                  <span className="text-[10px] text-gray-400 mt-1">
-                    {formatDate(post.date)}
-                  </span>
-                )}
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
+              )}
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

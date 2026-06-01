@@ -40,15 +40,9 @@ const MostPopularNews = () => {
     fetchNews();
   }, []);
 
+  //  FIX: Return null while loading - no "Loading..." text
   if (loading) {
-    return (
-      <div className="mb-2">
-        <h2 className="text-[17px] md:text-[19px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-3">
-          Most Popular
-        </h2>
-        <div className="text-center py-6 text-gray-500 text-sm">Loading...</div>
-      </div>
-    );
+    return null;
   }
 
   if (error) {

@@ -59,15 +59,9 @@ const PressRelease = () => {
     }
   };
 
+  //  FIX: Return null while loading - no "Loading..." text
   if (loading) {
-    return (
-      <div>
-        <h1 className="text-[17px] md:text-[19px] cambay font-bold mb-3 border-b border-black/10 pb-2">
-          Platinum Company Press Release
-        </h1>
-        <div className="text-center py-6 text-gray-500 text-sm">Loading...</div>
-      </div>
-    );
+    return null;
   }
 
   if (error) {

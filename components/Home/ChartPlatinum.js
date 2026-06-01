@@ -34,8 +34,15 @@ const ChartPlatinum = () => {
     fetchData();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  //  Return null while loading
+  if (loading) {
+    return null;
+  }
+
+  //  Return null on error or no data
+  if (error || !data) {
+    return null;
+  }
 
   const chartOptions = {
     chart: {

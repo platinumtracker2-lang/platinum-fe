@@ -15,7 +15,6 @@ const PlatinumLivePrice = () => {
         }
         const data = await response.json();
 
-        // Find the Platinum data from the response
         const platinumInfo = data.find(
           (item) =>
             item.metal_name === "Platinum" || item.pgm_name === "Platinum",
@@ -32,44 +31,13 @@ const PlatinumLivePrice = () => {
     fetchPlatinumPrice();
   }, []);
 
+  //  Return null while loading
   if (loading) {
-    return (
-      <div className="text-center">
-        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-          Live Platinum Price
-        </h2>
-        <div className="flex justify-center items-center h-32">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-800"></div>
-          <span className="ml-3 text-gray-800 font-semibold">Loading...</span>
-        </div>
-      </div>
-    );
+    return null;
   }
 
-  if (error) {
-    return (
-      <div className="text-center">
-        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-          Live Platinum Price
-        </h2>
-        <div className="text-center py-8 text-red-500">
-          Error loading platinum price: {error}
-        </div>
-      </div>
-    );
-  }
-
-  if (!platinumData) {
-    return (
-      <div className="text-center">
-        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-          Live Platinum Price
-        </h2>
-        <div className="text-center py-8 text-gray-500">
-          No platinum price data available
-        </div>
-      </div>
-    );
+  if (error || !platinumData) {
+    return null;
   }
 
   // Format large numbers (CNY) with commas, small numbers (USD) with decimals

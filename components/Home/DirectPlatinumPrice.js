@@ -17,6 +17,7 @@ const DirectPlatinumPrice = () => {
             `Platinum price API returned ${response.status} — showing empty state`,
           );
           setPlatinumData(null);
+          setLoading(false);
           return;
         }
 
@@ -24,6 +25,7 @@ const DirectPlatinumPrice = () => {
 
         if (!Array.isArray(data) || data.length === 0) {
           setPlatinumData(null);
+          setLoading(false);
           return;
         }
 
@@ -36,11 +38,11 @@ const DirectPlatinumPrice = () => {
           source: "CME Group",
           last_updated: cmeData.date,
         });
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching CME platinum spot price:", error);
         setError(error.message);
         setPlatinumData(null);
-      } finally {
         setLoading(false);
       }
     };
@@ -51,35 +53,14 @@ const DirectPlatinumPrice = () => {
     return () => clearInterval(interval);
   }, []);
 
+  //  Return null while loading
   if (loading) {
-    return (
-      <div className="text-center">
-        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-          Live Platinum Price
-        </h2>
-        <div className="flex justify-center items-center h-32">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-800"></div>
-          <span className="ml-3 text-gray-800 font-semibold">Loading...</span>
-        </div>
-      </div>
-    );
+    return null;
   }
 
-  if (!platinumData) {
-    return (
-      <div className="text-center">
-        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-          Live Platinum Price
-        </h2>
-        <div className="text-center py-8 text-red-500">
-          <p>CME platinum spot price data unavailable</p>
-          <p className="text-sm text-gray-600 mt-2">
-            Real-time data only - no fallback data
-          </p>
-          {error && <p className="text-xs text-red-400 mt-2">Error: {error}</p>}
-        </div>
-      </div>
-    );
+  // Return null if no data or error
+  if (!platinumData || error) {
+    return null;
   }
 
   const { price, price_change, price_change_percent, source } = platinumData;
