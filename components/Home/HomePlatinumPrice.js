@@ -32,12 +32,14 @@ const HomePlatinumPrice = () => {
     fetchPrices();
   }, []);
 
+  //  Return null while loading
   if (loading) {
-    return <div className="text-center py-4">Loading...</div>;
+    return null;
   }
 
-  if (error) {
-    return <div className="text-center py-4 text-red-500">Error: {error}</div>;
+  // Return null on error or if no data
+  if (error || metalPrices.length === 0) {
+    return null;
   }
 
   const formatValue = (value) => {

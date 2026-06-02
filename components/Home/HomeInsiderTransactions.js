@@ -47,20 +47,14 @@ const HomeInsiderTransactions = () => {
     });
   };
 
+  // Return null while loading
   if (loading) {
-    return (
-      <div className="text-center py-4">
-        <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-[#00AEEF] mx-auto"></div>
-      </div>
-    );
+    return null;
   }
 
+  // Return null if no transactions
   if (transactions.length === 0) {
-    return (
-      <div className="text-center py-4 text-gray-500 text-sm">
-        No recent transactions available
-      </div>
-    );
+    return null;
   }
 
   return (
